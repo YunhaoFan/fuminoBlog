@@ -1,0 +1,82 @@
+body {
+  background-color: #221114;
+}
+
+.App {
+  text-align: center;
+  font-family: "Candara Light";
+  overflow: auto;
+}
+
+.App-header {
+  background-color: #221114;
+  height: 400px;
+  color: #fef9ff;
+}
+
+.App-header > .title-block {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(61, 58, 62, 0.31);
+  box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.44);
+  z-index: 4;
+}
+.App-header>.hoist-banner {
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(61, 58, 62, 0.31);
+  box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.44);
+  transition: top,left 1s;
+  z-index: 4;
+}
+.blog-title {
+  font-size: 50px;
+}
+.blog-subtitle{
+  padding: 10px;
+  font-size: 13px;
+  font-family: 方正细等线简体;
+}
+
+
+@keyframes fade-in {
+  0% {opacity: 0;}/*初始状态 透明度为0*/
+  40% {opacity: 0;}/*过渡状态 透明度为0*/
+  100% {opacity: 1;}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+  0% {opacity: 0;}
+  40% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.ease-in-out{
+  animation: fade-in;/*动画名称*/
+  animation-duration: 1s;/*动画持续时间*/
+  -webkit-animation:fade-in 1s;/*针对webkit内核*/
+}
+
+.navList {
+  padding-bottom: 13px;
+}
+.navList > span{
+  font-family: 方正细等线简体;
+  font-size: 10px;
+  display: inline-block;
+  padding: 0 20px 0 20px;
+  color: #fff;
+}
+.navList > span:hover{
+  color: crimson;
+}
+
+.navList > span>a:visited{
+  color: #7b787c;
+}
+.navList > span>a:hover{
+  color: crimson;
+}
+

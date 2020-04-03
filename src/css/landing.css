@@ -1,0 +1,51 @@
+.landing-container{
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.landing-container > .landing-item{
+    margin: 10px 10px 10px 10px;
+    background-color: rgba(61, 58, 62, 0.31);
+    box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
+    height: 200px;
+    width: 200px;
+    flex: 0 0 500px;
+}
+
+.landing-item img{
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    z-index: -1;
+}
+
+.essay-abstract {
+    display: inline-block;
+    position: absolute;
+    color: white;
+    margin-top: 50px;
+}
+.essay-abstract>:first-child{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.essay-abstract>p{
+    font-size: 13px;
+    margin-top: 30px;
+    color: #7b787c;
+}
+.landing-item .date {
+    display: inline-block;
+    position: relative;
+    left: 200px;
+    bottom: 10px;
+    color: aliceblue;
+    font-family: "Segoe UI Light";
+}
