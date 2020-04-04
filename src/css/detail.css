@@ -1,0 +1,28 @@
+.detail-container {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-container >.essay-content{
+    position: relative;
+    flex: 0 0 90%;
+    background-color: rgba(61, 58, 62, 0.31);
+    box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
+    font-family: 方正细等线简体;
+}
+
+.detail-container>.essay-content>span {
+    display: inline-block;
+    padding: 10px;
+    color: #c9c9c9;
+
+}
+.detail-container>.essay-content>h2,p{
+    padding: 10px;
+    color: white;
+}
+
+
