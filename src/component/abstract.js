@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import '../css/landing.css';
 import {EssayGroup} from "./essayBlockGroup";
-import {getStudyScriptAbstract} from "../api/api";
+import {getAbstractByCategory} from "../api/api";
 import {beforeLoading,afterLoading} from "../js/loadingEvent";
 
-class Script extends Component {
+class Abstract extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			essayArr: [],
 		};
+
 	}
 
 	render() {
@@ -19,10 +20,12 @@ class Script extends Component {
 			</div>
 		)
 	}
-	async getStudyScriptData() {
+	async getAbstract() {
 		try {
 			beforeLoading();
-			const data = await getStudyScriptAbstract('/script');
+			const type = window.location.hash.split('/')[1];
+			console.log('check:'+type);
+			const data = await getAbstractByCategory({type:type});
 			const scriptAbstract = data;
 			console.log(scriptAbstract);
 			const essayArr = [];
@@ -42,8 +45,8 @@ class Script extends Component {
 	}
 
 	componentWillMount() {
-		this.getStudyScriptData();
+		this.getAbstract();
 	}
 }
 
-export {Script};
+export default (props) => {return (<Abstract {...props} key={props.location.pathname}/>)};

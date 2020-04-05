@@ -11,6 +11,7 @@ class EssayGroup extends Component{
 			redirect:''
 		}
 	}
+	// 查看详情
 	async handleClick(val){
 		console.log(val);
 		window.localStorage.setItem('detailKey',JSON.stringify(val));

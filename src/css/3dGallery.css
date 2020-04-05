@@ -1,0 +1,35 @@
+#sphere {
+    left: 50%;
+    position: fixed;
+    transform-style: preserve-3d;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    animation: rotate-sphere 20s linear 0s infinite;
+}
+
+#sphere >div{
+    opacity: 0.7;
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    text-align: center;
+    background-color: rgba(148, 3, 19, 0.33);
+    box-shadow: 0 0 3px rgba(254, 249, 255, 0.58);
+}
+
+.sphere-container{
+    perspective: 800px;
+}
+.initLi{
+    transition: ease-in-out 4s;
+}
+
+@keyframes rotate-sphere {
+    from {
+        transform: rotateY(0);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}

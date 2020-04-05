@@ -12,6 +12,7 @@ body {
   background-color: #221114;
   height: 400px;
   color: #fef9ff;
+  overflow: hidden;
 }
 
 .App-header > .title-block {
@@ -29,7 +30,6 @@ body {
   transform: translateX(-50%);
   background-color: rgba(61, 58, 62, 0.31);
   box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.44);
-  transition: top,left 1s;
   z-index: 4;
 }
 .blog-title {
@@ -62,7 +62,7 @@ body {
 .navList {
   padding-bottom: 13px;
 }
-.navList > span{
+.navList > span>a{
   font-family: 方正细等线简体;
   font-size: 10px;
   display: inline-block;
