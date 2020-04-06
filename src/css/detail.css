@@ -1,3 +1,14 @@
+@keyframes fade-in {
+    0% {opacity: 0;}/*初始状态 透明度为0*/
+    40% {opacity: 0;}/*过渡状态 透明度为0*/
+    100% {opacity: 1;}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 .detail-container {
     position: relative;
     display: flex;
@@ -5,24 +16,36 @@
     justify-content: center;
     align-items: center;
 }
-
 .detail-container >.essay-content{
+    animation: fade-in 1s;
     position: relative;
     flex: 0 0 90%;
     background-color: rgba(61, 58, 62, 0.31);
     box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
     font-family: 方正细等线简体;
+    margin-bottom: 100px;
 }
 
-.detail-container>.essay-content>span {
+.detail-container>.essay-content span {
     display: inline-block;
     padding: 10px;
     color: #c9c9c9;
-
+    margin-left: -5px;
 }
-.detail-container>.essay-content>h2,p{
+.detail-container>.essay-content h1,h2,h3,h4,h5,p{
     padding: 10px;
     color: white;
+    line-height:30px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.detail-container>.essay-content img{
+    max-height: 400px;
+    box-shadow: 0 0 4px 0 rgba(128, 128, 128, 0.57);
+    transition: ease-in-out 0.5s;
 }
 
-
+.detail-container>.essay-content img:hover{
+    box-shadow: 0 0 10px 0 rgba(166, 166, 166, 0.57);
+    transform: translateY(-2%);
+}

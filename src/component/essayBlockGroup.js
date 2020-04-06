@@ -22,9 +22,10 @@ class EssayGroup extends Component{
 	render() {
 		return (
 			<div className="landing-item" onClick={()=>this.handleClick({id:this.props.id})}>
-				<img src={preImg} alt=""/>
+				<img src={this.props.abstractImg} alt=""/>
 				<div className="essay-abstract">
 					<span>{this.props.title}</span>
+					<span className="essay-tag">Tag：{this.props.tag}</span>
 					<p>{this.props.abstract}</p>
 				</div>
 				<span className="date">{this.props.date}</span>

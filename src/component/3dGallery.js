@@ -8,7 +8,6 @@ class Sphere extends Component {
 			elementArr: []
 		}
 	}
-
 	render() {
 		return (
 			<div className="sphere-container">

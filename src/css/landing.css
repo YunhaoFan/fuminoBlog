@@ -1,3 +1,14 @@
+@keyframes fade-in {
+    0% {opacity: 0;}/*初始状态 透明度为0*/
+    40% {opacity: 0;}/*过渡状态 透明度为0*/
+    100% {opacity: 1;}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 .landing-container{
     position: relative;
     display: flex;
@@ -17,14 +28,20 @@
     height: 200px;
     width: 200px;
     flex: 0 0 500px;
-
+    transition: ease-in-out 0.5s;
+    animation: fade-in 1s;
+}
+.landing-item:hover{
+    cursor:pointer;
+    transform: translateY(-5%);
+    box-shadow: 0 0 8px 0 rgba(103, 99, 104, 0.62);
 }
 
 .landing-item img{
     display: inline-block;
-    height: 200px;
-    width: 200px;
-
+    height: 180px;
+    width: 180px;
+    margin:10px;
 }
 
 .essay-abstract {
@@ -37,10 +54,20 @@
     font-weight: bold;
     font-size: 20px;
 }
+.essay-tag{
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 5px;
+    color: #b5b2b6;
+}
+.essay-tag:hover{
+    color: crimson;
+}
 
 .essay-abstract>p{
     font-size: 13px;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: -10px;
     color: #7b787c;
 }
 .landing-item .date {
@@ -48,7 +75,7 @@
     display: inline-block;
     position: relative;
     left: 200px;
-    bottom: 10px;
+    bottom: 20px;
     color: aliceblue;
     font-family: "Segoe UI Light";
 }

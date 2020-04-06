@@ -35,3 +35,17 @@ export const initLayout =(perspective)=>{
 		}
 	}, 900);
 };
+
+// banner位置更改
+export const adjustBanner = () =>{
+	const path = window.location.hash.split('/')[1];
+	console.log(path)
+	const header = document.getElementById('header');
+	if (path!=='home'){
+		header.classList.remove('App-header-home');
+		header.classList.add('App-header');
+	} else {
+		header.classList.remove('App-header');
+		header.classList.add('App-header-home');
+	}
+};

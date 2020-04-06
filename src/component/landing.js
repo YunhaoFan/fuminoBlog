@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/landing.css';
+import {adjustBanner} from "../js/loadingEvent";
 
 class Landing extends Component{
 	constructor(props){
@@ -11,6 +12,9 @@ class Landing extends Component{
 
 			</div>
 		)
+	}
+	componentDidMount() {
+		adjustBanner();
 	}
 }
 

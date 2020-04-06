@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {HashRouter, Link} from "react-router-dom";
 import './App.css';
 import {Sphere} from "./component/3dGallery";
+import {adjustBanner} from "./js/loadingEvent";
 
 class App extends Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<div id="header" className="App-header ">
+				<div id="header" className="App-header-home ">
 					<Sphere> </Sphere>
 					<div className="title-block ease-in-out">
 						<div className="blog-title">Fumino's Blog.</div>
@@ -31,6 +32,9 @@ class App extends Component {
 		);
 	};
 
+	componentDidMount() {
+		adjustBanner();
+	}
 }
 
 export default App;
