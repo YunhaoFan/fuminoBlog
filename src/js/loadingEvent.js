@@ -33,7 +33,7 @@ export const initLayout =(perspective)=>{
 				`transform:rotateY(${liDegY}deg) rotateX(${liDegX}deg)
 					translateZ(${Math.abs(perspective)}px)`;
 		}
-	}, 900);
+	}, 1);
 };
 
 // banner位置更改

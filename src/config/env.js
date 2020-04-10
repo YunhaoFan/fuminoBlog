@@ -7,8 +7,8 @@
  */
 let baseUrl;
 let baseImgPath;
-baseUrl = 'http://localhost:8080';
-baseImgPath = 'http://localhost:8080/img';
+baseUrl = 'http://localhost:80';
+baseImgPath = 'http://localhost:80/img';
 //baseUrl = 'http://'+window.location.host+'';
 //baseImgPath = 'http://'+window.location.host+'img/';
 

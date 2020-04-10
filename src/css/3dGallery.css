@@ -12,12 +12,19 @@
     opacity: 0.7;
     width: 70px;
     height: 60px;
+    display: flex;
     position: absolute;
-    text-align: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(148, 3, 19, 0.33);
     box-shadow: 0 0 3px rgba(254, 249, 255, 0.58);
 }
-
+#sphere >div>span{
+    position: relative;
+    font-size: 25px;
+    text-shadow: 0 0 3px #ebeb4e;
+}
 .sphere-container{
     perspective: 800px;
 }

@@ -15,32 +15,41 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 1;
 }
 
-.landing-container > .landing-item{
-    margin: 10px 10px 10px 10px;
+.landing-container >.abstract-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: center;
+    flex: 0 1 1100px;
+}
+@media screen and (max-width: 1106px){
+    .abstract-container {
+        justify-content: center !important;/*这个地方得加important*/
+    }
+}
+
+.landing-container >.abstract-container> .landing-item{
+    margin: 15px 25px 15px 25px;
     background-color: rgba(61, 58, 62, 0.31);
     box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
-    height: 200px;
-    width: 200px;
-    flex: 0 0 500px;
+    height: 160px;
+    flex: 0 1 500px;
     transition: ease-in-out 0.5s;
     animation: fade-in 1s;
 }
 .landing-item:hover{
     cursor:pointer;
-    transform: translateY(-5%);
+    transform: translateY(-10px);
     box-shadow: 0 0 8px 0 rgba(103, 99, 104, 0.62);
 }
 
 .landing-item img{
     display: inline-block;
-    height: 180px;
-    width: 180px;
+    height: 150px;
+    width: 150px;
     margin:10px;
 }
 
@@ -48,11 +57,12 @@
     display: inline-block;
     position: absolute;
     color: white;
-    margin-top: 50px;
+    margin-top: 15px;
+    max-width: 300px;
 }
 .essay-abstract>:first-child{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2em;
 }
 .essay-tag{
     display: inline-block;
@@ -66,7 +76,7 @@
 
 .essay-abstract>p{
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: -10px;
     color: #7b787c;
 }
@@ -74,7 +84,7 @@
     font-size: 12px;
     display: inline-block;
     position: relative;
-    left: 200px;
+    float: right;
     bottom: 20px;
     color: aliceblue;
     font-family: "Segoe UI Light";

@@ -21,9 +21,16 @@ class Sphere extends Component {
 
 	createElement(nums) {
 		let elementArr = [];
+		let contentArr = ['Σ','Ω','Γ','Π','β','γ','ξ','Ψ','ω','Ø','◢◤','卍','卐'];
 		for (let i in [...Array(nums)]) {
+			let content = contentArr[i%13];
+			let spanContent = (<span>{content}</span>);
+			if (i%12===9){
+				spanContent = (<span> </span>);
+			}
 			let element = (
 				<div key={i} className='initLi'>
+					{spanContent}
 				</div>);
 			elementArr.push(element);
 		}

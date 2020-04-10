@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/landing.css';
-import preImg from '../logo.svg'
 import {Redirect} from "react-router";
 
 class EssayGroup extends Component{

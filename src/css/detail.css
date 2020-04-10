@@ -1,12 +1,28 @@
 @keyframes fade-in {
-    0% {opacity: 0;}/*初始状态 透明度为0*/
-    40% {opacity: 0;}/*过渡状态 透明度为0*/
-    100% {opacity: 1;}/*结束状态 透明度为1*/
+    0% {
+        opacity: 0;
+    }
+    /*初始状态 透明度为0*/
+    40% {
+        opacity: 0;
+    }
+    /*过渡状态 透明度为0*/
+    100% {
+        opacity: 1;
+    }
+    /*结束状态 透明度为1*/
 }
-@-webkit-keyframes fade-in {/*针对webkit内核*/
-    0% {opacity: 0;}
-    40% {opacity: 0;}
-    100% {opacity: 1;}
+
+@-webkit-keyframes fade-in { /*针对webkit内核*/
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .detail-container {
@@ -16,36 +32,57 @@
     justify-content: center;
     align-items: center;
 }
-.detail-container >.essay-content{
+
+.detail-container > .essay-content {
     animation: fade-in 1s;
     position: relative;
     flex: 0 0 90%;
     background-color: rgba(61, 58, 62, 0.31);
     box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
     font-family: 方正细等线简体;
-    margin-bottom: 100px;
+    margin-bottom: 10%;
+    overflow: auto;
 }
 
-.detail-container>.essay-content span {
+.detail-container > .essay-content span {
     display: inline-block;
     padding: 10px;
     color: #c9c9c9;
     margin-left: -5px;
 }
-.detail-container>.essay-content h1,h2,h3,h4,h5,p{
+
+.detail-container > .essay-content h1, h2, h3, h4, h5, p{
     padding: 10px;
     color: white;
-    line-height:30px;
-    margin-left: 40px;
-    margin-right: 40px;
+    line-height: 30px;
+    margin-left: 3%;
+    margin-right: 3%;
 }
-.detail-container>.essay-content img{
-    max-height: 400px;
+
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+    font-family: "微软雅黑 Light";
+}
+pre{
+    padding-left: 3%;
+}
+ol{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+blockquote{
+    font-family: 方正瘦金书简体;
+}
+
+.detail-container > .essay-content img {
+    overflow: auto;
+    max-height: 100%;
+    max-width: 100%;
     box-shadow: 0 0 4px 0 rgba(128, 128, 128, 0.57);
     transition: ease-in-out 0.5s;
 }
 
-.detail-container>.essay-content img:hover{
+.detail-container > .essay-content img:hover {
     box-shadow: 0 0 10px 0 rgba(166, 166, 166, 0.57);
     transform: translateY(-2%);
 }
