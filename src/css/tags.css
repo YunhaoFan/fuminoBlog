@@ -1,0 +1,78 @@
+/*可拖动标签样式*/
+
+.tag-container {
+    z-index: 6;
+    top: 300px;
+    left: 20px;
+    position: fixed;
+    box-shadow: 0 0 2px 0 rgba(181, 0, 15, 0.74);
+    background-color: rgba(84, 81, 85, 0.52);
+    text-align: center;
+    cursor: grab;
+    font-size: 13px;
+}
+
+.tag-container:hover{
+    box-shadow: 0 0 4px 0 rgba(235, 81, 6, 0.74);
+}
+.tag-container span {
+    color: white;
+    font-family: "等线 Light";
+    display: block;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    padding:5px 5px 5px 5px;
+}
+
+.tag-container span:hover{
+    color: crimson;
+    background-color: rgba(133, 130, 134, 0.53);
+    transition: ease-in-out 0.5s;
+}
+
+.tag-hidden {
+    font-size: 10px;
+    color: crimson;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    padding:3px 3px 3px 3px;
+}
+
+.tag-hidden:hover{
+    color: white;
+}
+
+.tag-container-hidden {
+    z-index: 6;
+    position: fixed;
+    box-shadow: 0 0 2px 0 rgba(181, 0, 15, 0.74);
+    background-color: rgba(84, 81, 85, 0.52);
+    cursor: grab;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    text-align: center;
+    color: crimson;
+    font-size: 10px;
+}
+
+.tag-container-hidden:hover{
+    box-shadow: 0 0 4px 0 rgba(235, 81, 6, 0.74);
+}
+
+.tag-container-hidden span {
+    display: none;
+}
+
+.show-nav {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.show-nav:hover{
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+}
