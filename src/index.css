@@ -3,6 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+a{
+  font-family: 方正细等线简体;
+  display: inline-block;
+  color: #fff;
+}
+a:visited{
+  color: #7b787c;
+}
+a:hover{
+  color: crimson;
+}
 
 #loading-anime {
   position: fixed;

@@ -65,24 +65,37 @@ h1,h2,h3,h4,h5 {
 }
 pre{
     padding-left: 3%;
+    border: 3px solid #7b787c;
+    background-color: #221114;
+    overflow: auto;
 }
 ol{
     margin-left: 3%;
     margin-right: 3%;
 }
 blockquote{
-    font-family: 方正瘦金书简体;
+    font-family: "等线 Light";
+    border: 3px solid #7b787c;
+    border-radius: 20px;
+    background-color: #221114;
+}
+
+code {
+    background-color: #2e151b;
 }
 
 .detail-container > .essay-content img {
     overflow: auto;
     max-height: 100%;
     max-width: 100%;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
     box-shadow: 0 0 4px 0 rgba(128, 128, 128, 0.57);
     transition: ease-in-out 0.5s;
 }
 
 .detail-container > .essay-content img:hover {
     box-shadow: 0 0 10px 0 rgba(166, 166, 166, 0.57);
-    transform: translateY(-2%);
+    transform: translateY(-2%) translateX(-50%);
 }
