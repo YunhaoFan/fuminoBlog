@@ -54,8 +54,23 @@
     text-align: center;
     color: crimson;
     font-size: 10px;
+    animation: bubble 2s ease-in-out 0.5s infinite;
 }
 
+@keyframes bubble {
+    0% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 2px 0 rgba(181, 0, 15, 0.74);
+    }
+    50% {
+        transform: translateY(5px);
+        box-shadow: 0 0 5px 0 rgba(192, 138, 0, 0.77);
+    }
+    100% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 2px 0 rgba(181, 0, 15, 0.74);
+    }
+}
 .tag-container-hidden:hover{
     box-shadow: 0 0 4px 0 rgba(235, 81, 6, 0.74);
 }

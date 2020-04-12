@@ -49,11 +49,12 @@ class Abstract extends Component {
 		}
 	}
 
-	// 根据hash值 按照类别分类获取概览组
+	// 根据点击类别 按照类别分类获取概览组
 	async getAbstract() {
 		try {
 			beforeLoading();
-			const type = window.location.hash.split('/')[1];
+			console.log(this.props.location,this.props.match.params);
+			const type =  this.props.match.params.category;
 			let data = await getAbstractByCategory({type: type});
 			console.log('check:' + type);
 			const essayArr = [];

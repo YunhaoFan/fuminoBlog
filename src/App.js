@@ -20,9 +20,9 @@ class App extends Component {
 						<div className={"navList"}>
 							<HashRouter>
 								<span><Link to={'/home'}>首页</Link></span>
-								<span><Link to={'/script'}>学习笔记</Link></span>
-								<span><Link to={'/music'}>音乐</Link></span>
-								<span><Link to={'/game'}>游戏</Link></span>
+								<span><Link to={'/abstract/' + 'script'}>学习笔记</Link></span>
+								<span><Link to={'/abstract/' + 'music'}>音乐</Link></span>
+								<span><Link to={'/abstract/' + 'game'}>游戏</Link></span>
 								<span><Link to={'/board'}>留言板</Link></span>
 							</HashRouter>
 						</div>

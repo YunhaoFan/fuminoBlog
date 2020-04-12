@@ -112,7 +112,7 @@ class Tags extends Component {
 			originTop = getTop(tagContainer);
 			originLeft = getLeft(tagContainer);
 		});
-		window.addEventListener('touchmove', (e) => {
+		tagContainer.addEventListener('touchmove', (e) => {
 			const touch = e.targetTouches[0];
 			moveX = touch.clientX - startX;
 			moveY = touch.clientY - startY;
