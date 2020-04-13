@@ -26,8 +26,8 @@ class EssayGroup extends Component{
 					<span>{this.props.title}</span>
 					<span className="essay-tag">Tag：{this.props.tag}</span>
 					<p>{this.props.abstract}</p>
+					<span className="date">{this.props.date}</span>
 				</div>
-				<span className="date">{this.props.date}</span>
 				{this.state.redirect}
 			</div>
 		)

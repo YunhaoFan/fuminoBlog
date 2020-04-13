@@ -34,7 +34,7 @@ class Detail extends Component {
 
 	async getEssayDetail() {
 		try {
-			beforeLoading();
+			//beforeLoading();
 			const key = window.localStorage.getItem('detailKey');
 			const detail = await getDetail(JSON.parse(key));
 			console.log(detail);
@@ -46,7 +46,7 @@ class Detail extends Component {
 				tag: detail[0].tag,
 				content: detail[0].content
 			});
-			afterLoading();
+			//afterLoading();
 		} catch (e) {
 			console.log(e)
 		}

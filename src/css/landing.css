@@ -39,6 +39,8 @@
     flex: 0 1 500px;
     transition: ease-in-out 0.5s;
     animation: fade-in 1s;
+    display: flex;
+    flex-flow: nowrap row;
 }
 .landing-item:hover{
     cursor:pointer;
@@ -55,14 +57,16 @@
 
 .essay-abstract {
     display: inline-block;
-    position: absolute;
+    position: relative;
     color: white;
-    margin-top: 15px;
-    max-width: 300px;
+    padding-top: 20px;
+    width: 310px;
+    height: 130px;
 }
 .essay-abstract>:first-child{
     font-weight: bold;
     font-size: 1.2em;
+    margin-left: 10px;
 }
 .essay-tag{
     display: inline-block;
@@ -77,15 +81,15 @@
 .essay-abstract>p{
     font-size: 13px;
     margin-top: 15px;
-    margin-left: -10px;
+    padding: 0;
     color: #7b787c;
 }
 .landing-item .date {
     font-size: 12px;
     display: inline-block;
-    position: relative;
-    float: right;
-    bottom: 20px;
+    position: absolute;
     color: aliceblue;
     font-family: "Segoe UI Light";
+    right: 10px;
+    bottom:10px;
 }

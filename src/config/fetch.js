@@ -1,7 +1,9 @@
 import {baseUrl} from "./env";
+import {afterLoading, beforeLoading} from "../js/loadingEvent";
 
-// 简单封装fetch
+// 简单封装fetch,加入过渡动画
 export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
+	beforeLoading();
 	type = type.toUpperCase();
 	url = baseUrl + url;
 
@@ -39,12 +41,15 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 			//console.info(url)
 			const response = await fetch(url, requestConfig);
 			const responseJson = await response.json();
+			afterLoading();
 			return responseJson
 		} catch (error) {
 			console.info(error);
+			afterLoading();
 			throw new Error(error)
 		}
 	} else {
+		afterLoading();
 		return new Promise((resolve, reject) => {
 			let requestObj;
 			if (window.XMLHttpRequest) {
@@ -75,4 +80,5 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 			}
 		})
 	}
+
 }

@@ -30,7 +30,7 @@ class Abstract extends Component {
 	// 根据tag值 按照tag分类获取概览组
 	async getAbstractByTag(tag) {
 		try {
-			beforeLoading();
+			//beforeLoading();
 			let data = await getAbstractByTagName({tagName:tag});
 			const essayArr = [];
 			data.forEach((item) => {
@@ -43,7 +43,7 @@ class Abstract extends Component {
 			});
 			console.log(essayArr);
 			this.setState({essayArr: essayArr});
-			afterLoading();
+			//afterLoading();
 		} catch (e) {
 			console.log(e);
 		}
@@ -52,7 +52,7 @@ class Abstract extends Component {
 	// 根据点击类别 按照类别分类获取概览组
 	async getAbstract() {
 		try {
-			beforeLoading();
+			//beforeLoading();
 			console.log(this.props.location,this.props.match.params);
 			const type =  this.props.match.params.category;
 			let data = await getAbstractByCategory({type: type});
@@ -68,7 +68,7 @@ class Abstract extends Component {
 			});
 			console.log(essayArr);
 			this.setState({essayArr: essayArr});
-			afterLoading();
+			//afterLoading();
 		} catch (e) {
 			console.log(e);
 		}
