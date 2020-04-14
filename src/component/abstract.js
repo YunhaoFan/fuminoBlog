@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../css/landing.css';
 import {EssayGroup} from "./essayBlockGroup";
 import {getAbstractByCategory, getAbstractByTagName} from "../api/api";
-import {beforeLoading, afterLoading, adjustBanner} from "../js/loadingEvent";
+import {adjustBanner} from "../js/loadingEvent";
 import {Tags} from "./tags";
 
 class Abstract extends Component {

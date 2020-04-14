@@ -1,0 +1,74 @@
+/*评论区样式*/
+
+.comment-form {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+#comment-essay-id{
+    visibility: hidden;
+}
+.comment-form>div div{
+    margin: 15px;
+}
+.comment-form>hr{
+    color: grey;
+    width: 90%;
+    border: 1px solid grey;
+}
+.comment-form>div label{
+    font-family: "等线 Light";
+    font-size: 20px;
+    color: white;
+}
+
+.comment-form textarea{
+    font-family: "等线 Light";
+    font-size: 14px;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(67, 29, 40, 0.81);
+    border: #221114 solid 2px;
+    border-radius: 5px;
+    color: white;
+}
+
+.comment-form input{
+    font-family: "等线 Light";
+    font-size: 14px;
+    background-color: rgba(67, 29, 40, 0.81);
+    width: 300px;
+    height: 30px;
+    border: #221114 solid 2px;
+    border-radius: 5px;
+    color:white;
+}
+
+.comment-form button{
+    height: 40px;
+    width: 100px;
+    border: #221114 solid 2px;
+    border-radius: 5px;
+    font-family: "等线 Light";
+    font-size: 18px;
+    margin-bottom: 30px;
+    transition: ease-in-out 0.5s;
+}
+.comment-form button:hover{
+    background-color: #aa4500;
+    color: white;
+    border: #fef9ff solid 2px;
+}
+#comment-remember {
+    background-color: rgba(67, 29, 40, 0.81);
+    width: 15px;
+}
+
+#check-box-remember{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
