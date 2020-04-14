@@ -1,6 +1,10 @@
 /**
  * 加载事件动画
  **/
+import {Notify} from "../component/notify";
+import ReactDOM from 'react-dom';
+import React from 'react';
+import {insertAfter} from "./util";
 
 export const beforeLoading = () => {
 	const loadingDiv = document.getElementById('loading-anime');
@@ -22,11 +26,11 @@ export const afterLoading = () => {
 };
 
 // 初始化球形 添加旋转动画（这里改用div了，li有“·”这个东西）
-export const initLayout =(perspective)=>{
+export const initLayout = (perspective) => {
 	let liArr = document.querySelectorAll('#sphere div');
 	console.log(liArr);
 	window.setTimeout(() => {
-		for (let i = 0 ;i<liArr.length;i++) {
+		for (let i = 0; i < liArr.length; i++) {
 			let liDegY = parseInt(i / 12) * 22.5;
 			let liDegX = 30 * i;
 			liArr[i].style =
@@ -37,15 +41,33 @@ export const initLayout =(perspective)=>{
 };
 
 // banner位置更改
-export const adjustBanner = () =>{
+export const adjustBanner = () => {
 	const path = window.location.hash.split('/')[1];
 	console.log(path)
 	const header = document.getElementById('header');
-	if (path!=='home'){
+	if (path !== 'home') {
 		header.classList.remove('App-header-home');
 		header.classList.add('App-header');
 	} else {
 		header.classList.remove('App-header');
 		header.classList.add('App-header-home');
 	}
+};
+
+// 显示notify
+export const showNofify = (type, text) => {
+	const notify = (<Notify notifyType={type} notifyText={text}/>);
+	const notifyContainer = document.createElement('div');
+	document.getElementById('notify').appendChild(notifyContainer);
+	ReactDOM.render(notify, notifyContainer);
+	window.setTimeout(() => {
+		notifyContainer.childNodes[0].style.opacity = 1;
+	}, 500);
+	window.setTimeout(() => {
+		notifyContainer.childNodes[0].style.opacity = 0;
+	}, 5000);
+	window.setTimeout(() => {
+		ReactDOM.unmountComponentAtNode(notifyContainer);
+		notifyContainer.parentNode.removeChild(notifyContainer);
+	}, 6000);
 };

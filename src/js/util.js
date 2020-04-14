@@ -11,14 +11,24 @@ export const strToDom = (str) => {
 
 //获取元素的纵坐标
 export const getTop = (e) => {
-	var offset = e.offsetTop;
+	let offset = e.offsetTop;
 	if (e.offsetParent != null) offset += getTop(e.offsetParent);
 	return offset;
 };
 
 //获取元素的横坐标
 export const getLeft = (e) => {
-	var offset = e.offsetLeft;
+	let offset = e.offsetLeft;
 	if (e.offsetParent != null) offset += getLeft(e.offsetParent);
 	return offset;
+};
+
+// 实现一下insertAfter
+export const insertAfter = (newElement, targetElement) => {
+	const parent = targetElement.parentNode;
+	if (parent.lastChild == targetElement) {
+		parent.appendChild(newElement);
+	} else {
+		parent.insertBefore(newElement, targetElement.nextSibling)
+	}
 };

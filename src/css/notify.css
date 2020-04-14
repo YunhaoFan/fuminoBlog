@@ -1,0 +1,82 @@
+/* notify样式 */
+.notify-message {
+    z-index: 10;
+    border: 2px #221114 solid;
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(170, 69, 0, 0.68);
+    box-shadow: 0 0 4px 0 rgba(103, 99, 104, 0.62);
+    transition: ease-in-out 1s;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+}
+
+.notify-success {
+    z-index: 10;
+    border: 2px #221114 solid;
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(77, 170, 10, 0.68);
+    box-shadow: 0 0 4px 0 rgba(103, 99, 104, 0.62);
+    transition: ease-in-out 1s;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+}
+
+.notify-warning {
+    z-index: 10;
+    border: 2px #221114 solid;
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(170, 164, 0, 0.68);
+    box-shadow: 0 0 4px 0 rgba(103, 99, 104, 0.62);
+    transition: ease-in-out 1s;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+}
+.notify-error {
+    z-index: 10;
+    border: 2px #221114 solid;
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background-color: rgba(181, 0, 15, 0.68);
+    box-shadow: 0 0 4px 0 rgba(103, 99, 104, 0.62);
+    transition: ease-in-out 1s;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+}
+.notify-title {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.notify-text {
+    text-align: center;
+    position: relative;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+}

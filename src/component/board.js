@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/landing.css';
+import {showNofify} from "../js/loadingEvent";
 
 class Board extends Component{
 	constructor(props){
@@ -19,6 +20,7 @@ class Board extends Component{
 					color:'white'
 				}}>
 					还在施工中噢~
+					{showNofify('message','还在施工中哦,现在正在封装一点UI组件中QAQ')}
 				</div>
 			</div>
 		);
