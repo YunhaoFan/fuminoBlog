@@ -15,3 +15,9 @@ export const getTags = () => fetch('/tags');
 
 // 通过tags获取综述
 export const getAbstractByTagName = (data) =>fetch('/abstractByTagName',data,'POST');
+
+// 提交评论
+export const submitComment = (data) =>fetch('/submitComment',data,'POST');
+
+// 获取文章评论
+export const getComment = (data) =>fetch('/getComment',data,'POST');
