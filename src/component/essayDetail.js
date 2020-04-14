@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {getDetail} from "../api/api";
 import '../css/detail.css';
-import {beforeLoading, afterLoading} from "../js/loadingEvent";
 import {strToDom} from "../js/util";
+import {Comment} from "./comment";
 
 class Detail extends Component {
 	constructor(props) {
@@ -27,6 +27,7 @@ class Detail extends Component {
 						<span>Tags：{this.state.tag}</span>
 					</p>
 					<p dangerouslySetInnerHTML={{__html: this.state.content}}/>
+					<Comment essayId={window.localStorage.getItem('detailKey')}/>
 				</div>
 			</div>
 		);

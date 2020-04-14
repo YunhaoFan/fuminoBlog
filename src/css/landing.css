@@ -41,6 +41,7 @@
     animation: fade-in 1s;
     display: flex;
     flex-flow: nowrap row;
+    align-items: center;
 }
 .landing-item:hover{
     cursor:pointer;
