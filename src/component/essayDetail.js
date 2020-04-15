@@ -3,6 +3,7 @@ import {getDetail} from "../api/api";
 import '../css/detail.css';
 import {strToDom} from "../js/util";
 import {Comment} from "./comment";
+import {CommentList} from "./commentList";
 
 class Detail extends Component {
 	constructor(props) {
@@ -27,7 +28,8 @@ class Detail extends Component {
 						<span>Tags：{this.state.tag}</span>
 					</p>
 					<p dangerouslySetInnerHTML={{__html: this.state.content}}/>
-					<Comment essayId={window.localStorage.getItem('detailKey')}/>
+					<CommentList essayKey={window.localStorage.getItem('detailKey')} ref="commentList"/>
+					<Comment essayId={window.localStorage.getItem('detailKey')} commentList={this.refs.commentList}/>
 				</div>
 			</div>
 		);

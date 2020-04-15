@@ -117,6 +117,11 @@ class Comment extends Component {
 		});
 		this.checkRemember();
 		this.postComment();
+		window.setTimeout(() => {
+			const that = this.props.commentList;
+			that.getCommentByPage.call(that);
+			that.render.call(that);
+		}, 200);
 	}
 
 	// 提交表单
