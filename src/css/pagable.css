@@ -1,0 +1,108 @@
+/*分页样式*/
+
+.page-container{
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 13px;
+    font-family: "微软雅黑 Light";
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin:20px 0 0 0;
+    height: 60px;
+}
+.page-container>.page-num{
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border: rgba(0, 0, 0, 0) 1px solid;
+    margin: 0 5px 0 5px !important;
+}
+.page-container>.page-num:hover{
+    background-color: #6e2b46;;
+    border: white 1px solid;
+    border-radius: 20px;
+}
+
+.page-container>.page-num:checked{
+    background-color: #aa4500;
+    border: white 1px solid;
+    border-radius: 20px;
+}
+
+.prev-disable{
+    padding: 7px 10px 7px 10px !important;
+    margin-right: 20px;
+    background-color: #2d121d;
+    border: #291b05 1px solid;
+    border-radius: 8px;
+    cursor: not-allowed;
+    color: #4f4c50 !important;
+}
+.next-disable{
+    padding: 7px 10px 7px 10px !important;
+    margin-left: 20px!important;
+    background-color: #2d121d;
+    border: #291b05 1px solid;
+    border-radius: 8px;
+    cursor: not-allowed;
+    color: #4f4c50 !important;
+}
+
+.prev-enable{
+    padding: 7px 10px 7px 10px !important;
+    margin-right: 20px;
+    background-color: #5b233b;
+    border: #291b05 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fef9ff !important;
+    transition: ease-in-out 0.5s;
+}
+.prev-enable:hover{
+    background-color: #aa4500;
+    border: #fef9ff 1px solid;
+    border-radius: 8px;
+}
+.next-enable{
+    padding: 7px 10px 7px 10px !important;
+    margin-left: 15px!important;
+    background-color: #5b233b;
+    border: #291b05 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fef9ff !important;
+    transition: ease-in-out 0.5s;
+}
+.next-enable:hover{
+    background-color: #aa4500;
+    border: #fef9ff 1px solid;
+    border-radius: 8px;
+}
+
+.page-now{
+    text-align: center;
+    font-family: "等线 Light";
+    font-size: 12px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c97500 !important;
+    box-shadow: white 0 0 2px 0;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+    animation: ease-in-out breath 5s infinite;
+}
+
+@keyframes breath {
+    0% {
+        box-shadow: rgba(255, 255, 255, 0) 0 0 2px 0;
+    }
+    50%{
+        box-shadow: white 0 0 4px 0;
+    }
+    100%{
+        box-shadow: rgba(255, 255, 255, 0) 0 0 2px 0;
+    }
+}

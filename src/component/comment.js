@@ -4,6 +4,7 @@ import {showNofify} from "../js/loadingEvent";
 import {filterXSS} from "xss";
 import '../css/comment.css';
 import {submitComment} from "../api/api";
+import {debounce} from "../js/util";
 
 class Comment extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class Comment extends Component {
 		return (
 			<form className="comment-form" id="comment-form"
 				  onSubmit={(e) => {
-					  this.checkForm(e)
+					  debounce(this.checkForm(e),500);
 				  }}>
 				<hr/>
 				<div>
@@ -121,6 +122,7 @@ class Comment extends Component {
 			const that = this.props.commentList;
 			that.getCommentByPage.call(that);
 			that.render.call(that);
+			that.refs.page.updateStatus();
 		}, 200);
 	}
 
