@@ -159,12 +159,16 @@ class Comment extends Component {
 	// 获取记住信息选项
 	getRememberInfo() {
 		const commentInfo = JSON.parse(localStorage.getItem('commentInfo'));
-		this.setState({
-			//comment: commentInfo.comment,
-			nickname: commentInfo.nickname,
-			email: commentInfo.email
-			//essayKey: commentInfo.essayKey
-		})
+		for (let i in commentInfo){
+			if (i){
+				this.setState({
+					//comment: commentInfo.comment,
+					nickname: commentInfo.nickname,
+					email: commentInfo.email
+					//essayKey: commentInfo.essayKey
+				})
+			}
+		}
 	}
 
 	componentWillMount() {

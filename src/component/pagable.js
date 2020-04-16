@@ -128,6 +128,13 @@ class Page extends Component {
 				nextPage: 'next-disable'
 			});
 		}
+		if (presentPage==1&&totalPage==1){
+			this.setState({
+				prevPage: 'prev-disable',
+				nextPage: 'next-disable'
+			});
+		}
+
 	}
 
 	// 上一页动作
