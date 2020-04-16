@@ -122,13 +122,13 @@ class Page extends Component {
 				nextPage: 'next-enable'
 			});
 		}
-		if (presentPage == totalPage) {
+		else if (presentPage == totalPage) {
 			this.setState({
 				prevPage: 'prev-enable',
 				nextPage: 'next-disable'
 			});
 		}
-		if (presentPage==1&&totalPage==1){
+		else if (presentPage==1&&totalPage==1){
 			this.setState({
 				prevPage: 'prev-disable',
 				nextPage: 'next-disable'
