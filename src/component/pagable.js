@@ -184,7 +184,7 @@ class Page extends Component {
 		// 初始化页码状态
 		this.initPageNum(nextProps.totalPage);
 		// 更新状态
-		this.updateStatus();
+		window.setTimeout(()=>this.updateStatus(),1);
 	}
 }
 
