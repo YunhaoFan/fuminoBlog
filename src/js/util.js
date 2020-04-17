@@ -63,3 +63,30 @@ export const debounce = (fn, wait) => {
 
 // 生成自然数
 export const naturalArr = length => Array.from({length}).map((v,k) => k);
+
+// 图片懒加载
+export const lazyLoadImg =()=>{
+	const imgSet = document.querySelectorAll('img');
+	console.log(imgSet);
+	imgSet.forEach(item=>{
+		if (getTop(item)-window.innerHeight<0) {
+			const img = new Image();
+			img.src = item.getAttribute('data-src');
+			img.onload =()=>{
+				item.src = item.getAttribute('data-src');
+			}
+		}else {
+			document.addEventListener('scroll',(e)=>{
+				//console.log(getTop(item)-window.innerHeight-window.scrollY)
+				if (getTop(item)-window.scrollY-window.innerHeight<0) {
+					const img = new Image();
+					img.src = item.getAttribute('data-src');
+					img.onload =()=>{
+						item.src = item.getAttribute('data-src');
+					}
+				}
+			})
+		}
+
+	})
+};

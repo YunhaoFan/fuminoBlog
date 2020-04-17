@@ -4,6 +4,7 @@ import {EssayGroup} from "./essayBlockGroup";
 import {getAbstractByCategory, getAbstractByTagName} from "../api/api";
 import {adjustBanner} from "../js/loadingEvent";
 import {Tags} from "./tags";
+import {lazyLoadImg} from "../js/util";
 
 class Abstract extends Component {
 	constructor(props) {
@@ -78,6 +79,9 @@ class Abstract extends Component {
 	componentDidMount() {
 		this.getAbstract();
 		adjustBanner();
+	}
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		lazyLoadImg();
 	}
 }
 

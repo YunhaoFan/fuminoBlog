@@ -9,7 +9,7 @@ export const bannerHoist = () => {
 	const banner = document.querySelector('.title-block');
 	const header = document.querySelector('#header');
 	document.addEventListener('scroll', throttle(function (e) {
-		console.log(banner.offsetHeight, banner.offsetTop, window.scrollY, header.offsetHeight);
+		//console.log(banner.offsetHeight, banner.offsetTop, window.scrollY, header.offsetHeight);
 		if (window.scrollY > 0.5 * header.offsetHeight - 0.5 * banner.offsetHeight) {
 			if (!banner.classList.contains('hoist-banner')) {
 				banner.classList.remove('title-block');

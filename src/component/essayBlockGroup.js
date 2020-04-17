@@ -25,7 +25,7 @@ class EssayGroup extends Component {
 			<div className="landing-item" onClick={() => {
 				this.handleClick({id: this.props.id});
 			}}>
-				<img src={this.props.abstractImg} alt=""/>
+				<img src="../img/loading.gif" data-src={this.props.abstractImg} alt=""/>
 				<div className="essay-abstract">
 					<span>{this.props.title}</span>
 					<span className="essay-tag">Tag：{this.props.tag}</span>

@@ -4,7 +4,6 @@
 import {Notify} from "../component/notify";
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {insertAfter} from "./util";
 
 export const beforeLoading = () => {
 	const loadingDiv = document.getElementById('loading-anime');
@@ -43,7 +42,7 @@ export const initLayout = (perspective) => {
 // banner位置更改
 export const adjustBanner = () => {
 	const path = window.location.hash.split('/')[1];
-	console.log(path)
+	//console.log(path)
 	const header = document.getElementById('header');
 	if (path !== 'home') {
 		header.classList.remove('App-header-home');

@@ -7,10 +7,14 @@
  */
 let baseUrl;
 let baseImgPath;
-baseUrl = 'http://localhost:80';
-baseImgPath = 'http://localhost:80/img';
-//baseUrl = 'http://'+window.location.host+'';
-//baseImgPath = 'http://'+window.location.host+'img/';
+if(process.env.NODE_ENV == 'development'){
+	baseUrl = 'http://localhost:80';
+    baseImgPath = 'http://localhost:80/img';
+}
+else{
+	baseUrl = 'http://'+window.location.host+'';
+	baseImgPath = 'http://'+window.location.host+'img/';
+}
 
 export {
 	baseUrl,
