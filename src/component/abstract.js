@@ -32,7 +32,7 @@ class Abstract extends Component {
 	async getAbstractByTag(tag) {
 		try {
 			//beforeLoading();
-			let data = await getAbstractByTagName({tagName:tag});
+			let data = await getAbstractByTagName({tagName: tag});
 			const essayArr = [];
 			data.forEach((item) => {
 				const arrItem = (
@@ -54,8 +54,8 @@ class Abstract extends Component {
 	async getAbstract() {
 		try {
 			//beforeLoading();
-			console.log(this.props.location,this.props.match.params);
-			const type =  this.props.match.params.category;
+			console.log(this.props.location, this.props.match.params);
+			const type = this.props.match.params.category;
 			let data = await getAbstractByCategory({type: type});
 			console.log('check:' + type);
 			const essayArr = [];
@@ -80,8 +80,9 @@ class Abstract extends Component {
 		this.getAbstract();
 		adjustBanner();
 	}
+
 	componentDidUpdate(prevProps, prevState, snapshot) {
-		lazyLoadImg();
+		window.setTimeout(lazyLoadImg,1000);
 	}
 }
 

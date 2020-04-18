@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/landing.css';
 import {Redirect} from "react-router";
+import loadingImg from '../img/loading1.gif';
 
 class EssayGroup extends Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ class EssayGroup extends Component {
 			<div className="landing-item" onClick={() => {
 				this.handleClick({id: this.props.id});
 			}}>
-				<img src="../img/loading.gif" data-src={this.props.abstractImg} alt=""/>
+				<img src={loadingImg} data-src={this.props.abstractImg} alt=""/>
 				<div className="essay-abstract">
 					<span>{this.props.title}</span>
 					<span className="essay-tag">Tag：{this.props.tag}</span>
