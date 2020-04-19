@@ -56,6 +56,8 @@ export const debounce = (fn, wait) => {
 	// 定时器
 	let timeout = null;
 	return function () {
+		const that = this;
+		fn = fn.bind(that,...arguments);
 		if (timeout !== null) clearTimeout(timeout);
 		timeout = window.setTimeout(fn, wait);
 	}
@@ -71,11 +73,11 @@ export const lazyLoadImg = () => {
 		if (item.src !== item.getAttribute('data-src')){
 			const img = new Image();
 			img.src = item.getAttribute('data-src');
-			item.style.opacity = 0;
 			img.onload = () => {
+				item.style.opacity = 0;
 				window.setTimeout(() => {
 					item.src = item.getAttribute('data-src');
-					item.style.opacity = 1;
+					item.style.opacity = 0.5;
 				}, 500)
 			}
 		}

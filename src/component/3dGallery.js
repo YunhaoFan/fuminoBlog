@@ -1,24 +1,29 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import ReactDOM from 'react-dom';
 import '../css/3dGallery.css';
+import {Shining} from "./shining";
 
 class Sphere extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			elementArr: []
-		}
+		};
 	}
 	render() {
 		return (
-			<div className="sphere-container">
+			<div className="sphere-container" ref='sphereContainer'>
 				<div id="sphere">
 					{this.state.elementArr}
+				</div>
+				<div className="canvas" ref="shining">
 				</div>
 			</div>
 
 		);
 	}
 
+	// 创建96个div元素
 	createElement(nums) {
 		let elementArr = [];
 		let contentArr = ['Σ','Ω','Γ','Π','β','γ','ξ','Ψ','ω','Ø','◢◤','卍','卐'];
@@ -36,8 +41,19 @@ class Sphere extends Component {
 		}
 		this.setState({elementArr: elementArr});
 	}
+
 	componentWillMount() {
 		this.createElement(96);
+	}
+	// 挂载完成之后淡入，挂载光影组件，淡入
+	componentDidMount() {
+		window.setTimeout(()=>{
+			this.refs.sphereContainer.style.opacity =1
+		},1000);
+		window.setTimeout(()=>{
+			ReactDOM.render(<Shining/>,this.refs.shining)
+			this.refs.shining.style.opacity=1;
+		},4000);
 	}
 }
 

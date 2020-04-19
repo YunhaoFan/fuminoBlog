@@ -17,8 +17,8 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgba(148, 3, 19, 0.33);
-    box-shadow: 0 0 3px rgba(254, 249, 255, 0.58);
+    background-color: rgba(148, 3, 19, 0.2);
+    box-shadow: 0 0 8px rgba(254, 249, 255, 0.58);
 }
 #sphere >div>span{
     position: relative;
@@ -27,9 +27,55 @@
 }
 .sphere-container{
     perspective: 800px;
+    opacity: 0;
+    transition: ease-in-out 2s;
 }
 .initLi{
+    perspective: 300px;
+    transform-style: preserve-3d;
+    transition: transform ease-in-out 4s;
+}
+.initLi:hover {
+    background-color: rgba(148, 3, 19, 0.51) !important;
+    box-shadow: 0 0 10px rgba(254, 249, 255, 0.58) !important;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 460px;
+    transform: translateX(-50%);
     transition: ease-in-out 4s;
+    opacity: 0;
+}
+
+.shines {
+    display: flex;
+    justify-content: center;
+    width: 160px;
+    height: 110px;
+    position: relative;
+    bottom: -60px;
+    z-index: 2;
+}
+.shines .core {
+    width: 0.1px;
+    height: 0.1px;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 30px 40px rgba(255, 255, 255, 0.8);
+    animation: core-shining 10s infinite ease-in-out;
+}
+.shines .raising {
+    position: absolute;
+    width: 0;
+    height: 600px;
+    bottom: 100px;
+    z-index: 2;
+    box-shadow: 0 0 50px 30px rgba(255, 255, 255, 0.3);
+    animation: shining 10s infinite ease-in-out;
 }
 
 @keyframes rotate-sphere {
@@ -38,5 +84,41 @@
     }
     to{
         transform: rotateY(359deg);
+    }
+}
+
+@keyframes shining {
+    0% {
+        box-shadow: 0 0 50px 30px rgba(255, 255, 255, 0.3);
+    }
+    20%{
+        box-shadow: 0 0 80px 30px rgba(255, 255, 255, 0.4);
+    }
+    50%{
+        box-shadow: 0 0 40px 30px rgba(255, 255, 255, 0.2);
+    }
+    80%{
+        box-shadow: 0 0 70px 30px rgba(255, 255, 255, 0.6);
+    }
+    100%{
+        box-shadow: 0 0 50px 30px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes core-shining {
+    0% {
+        box-shadow: 0 0 30px 40px rgba(255, 255, 255, 0.6);
+    }
+    20%{
+        box-shadow: 0 0 50px 50px rgba(255, 255, 255, 0.7);
+    }
+    50%{
+        box-shadow: 0 0 40px 40px rgba(255, 255, 255, 0.3);
+    }
+    80%{
+        box-shadow: 0 0 60px 60px rgba(255, 255, 255, 0.8);
+    }
+    100%{
+        box-shadow: 0 0 30px 40px rgba(255, 255, 255, 0.6);
     }
 }
