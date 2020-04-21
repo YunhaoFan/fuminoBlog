@@ -3,8 +3,14 @@ import React, {Component} from 'react';
 import {showNofify} from "../js/loadingEvent";
 import {filterXSS} from "xss";
 import '../css/comment.css';
-import {submitComment} from "../api/api";
 import {debounce} from "../js/util";
+
+/**
+ * props:
+ * postMethod:提交表单API方法
+ * essayId:文章对应key 默认为0(留言板)
+ * commentList:对应commentList实体，用于提交后调用其中方法更新评论列表
+ */
 
 class Comment extends Component {
 	constructor(props) {
@@ -131,7 +137,8 @@ class Comment extends Component {
 		const commentData = this.state;
 		commentData.essayKey = JSON.parse(this.props.essayId).id;
 		try {
-			const res = await submitComment(commentData);
+			// postMethod为提交表单的api
+			const res = await this.props.postCommentMethod(commentData);
 			console.log(res)
 			if (res.errorCode == 1000) {
 				showNofify('success', '评论成功啦~！>w<');
@@ -173,6 +180,7 @@ class Comment extends Component {
 
 	componentWillMount() {
 		this.getRememberInfo();
+		console.log(this)
 	}
 }
 

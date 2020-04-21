@@ -1,30 +1,40 @@
 import React, {Component} from 'react';
-import '../css/landing.css';
-import {showNofify} from "../js/loadingEvent";
-import {filterXSS} from "xss";
+import {CommentList} from "./commentList";
+import {Comment} from "./comment";
+import {getComment, submitComment} from "../api/api";
+import {adjustBanner} from "../js/loadingEvent";
 
-class Board extends Component{
-	constructor(props){
+
+class Board extends Component {
+	constructor(props) {
 		super(props);
+		this.state = {
+			boardCommentList:''
+		}
 	}
+
 	render() {
-		return(
-			<div className="landing-container">
-				<div style={{
-					margin: '10px 10px 10px 10px',
-					backgroundColor: 'rgba(61, 58, 62, 0.31)',
-					boxShadow: '0 0 2px 0 rgba(128, 128, 128, 0.44)',
-					flex: '0 0 500px',
-					transition: 'ease-in-out 0.5s',
-					animation: 'fade-in 1s',
-					textAlign:'center',
-					color:'white'
-				}}>
-					还在施工中噢~
-					{showNofify('message','留言板还在施工中哦,Fumino现在正在封装一点UI组件中QAQ')}
+		return (
+			<div className="detail-container">
+				<div className="essay-content">
+					<CommentList essayKey={JSON.stringify({id: 0})} getCommentMethod={getComment} title={"客官们的建议"}
+								 ref="boardCommentList"/>
+					<Comment essayId={JSON.stringify({id: 0})} commentList={this.state.boardCommentList}
+							 postCommentMethod={submitComment}/>
 				</div>
 			</div>
 		);
+	}
+
+	getBoardCommentList(){
+		return this.refs.boardCommentList
+	}
+
+	componentDidMount() {
+		console.log(this.refs.boardCommentList);
+		console.log(this);
+		this.setState({boardCommentList:this.getBoardCommentList()});
+		adjustBanner();
 	}
 }
 

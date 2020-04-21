@@ -1,11 +1,19 @@
 // 评论列表
 import React, {Component} from 'react';
-import {getComment} from "../api/api";
 import {CommentBlock} from "./commentBlock";
 import '../css/commentBlock.css';
 import {Page} from "./pagable";
 
+/**
+ * props:
+ * getCommentMethod:获取评论API
+ * essayKey:文章key 默认为0(留言板)
+ */
+
 class CommentList extends Component {
+	static defaultProps = {
+		title:"客官语录"
+	};
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -20,7 +28,7 @@ class CommentList extends Component {
 		return (
 			<div>
 				<hr className="divided-comment"/>
-				<div className="comment-title">客官语录：</div>
+				<div className="comment-title">{this.props.title}</div>
 				<div className="comment-block-list">
 					{this.state.commentList}
 				</div>
@@ -32,7 +40,8 @@ class CommentList extends Component {
 	// 获取页数下的评论
 	async getCommentByPage() {
 		try {
-			const data = await getComment({
+			// 获取评论API
+			const data = await this.props.getCommentMethod({
 				essayKey: JSON.parse(this.props.essayKey).id,
 				presentPage: this.state.presentPage
 			});
