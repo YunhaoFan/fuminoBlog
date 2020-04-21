@@ -4,7 +4,7 @@ class Shining extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div className="shines">
+				<div className="hikari">
 					<div className="core"></div>
 					<div className="raising"></div>
 				</div>

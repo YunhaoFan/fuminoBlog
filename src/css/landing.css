@@ -36,7 +36,7 @@
     background-color: rgba(61, 58, 62, 0.31);
     box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
     height: 160px;
-    flex: 0 1 500px;
+    flex: 0 0 500px;
     transition: ease-in-out 0.5s;
     animation: fade-in 1s;
     display: flex;

@@ -83,7 +83,7 @@ export const lazyLoadImg = () => {
 		}
 	};
 	imgSet.forEach(item => {
-		console.log(getTop(item) - window.innerHeight)
+		//console.log(getTop(item) - window.innerHeight)
 		if (getTop(item) - window.innerHeight- window.scrollY < 0) {
 			imgAction(item);
 		} else {

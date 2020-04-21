@@ -6,9 +6,10 @@
     display: flex;
     justify-content: center;
     animation: rotate-sphere 20s linear 0s infinite;
+    transition: animation-play-state ease-in-out 0.5s;
 }
 
-#sphere >div{
+.initLi{
     opacity: 0.7;
     width: 70px;
     height: 60px;
@@ -19,6 +20,7 @@
     align-items: center;
     background-color: rgba(148, 3, 19, 0.2);
     box-shadow: 0 0 8px rgba(254, 249, 255, 0.58);
+    transition: transform ease-in-out 4s,background-color ease-in-out 0.5s;
 }
 #sphere >div>span{
     position: relative;
@@ -30,17 +32,13 @@
     opacity: 0;
     transition: ease-in-out 2s;
 }
-.initLi{
-    perspective: 300px;
-    transform-style: preserve-3d;
-    transition: transform ease-in-out 4s;
-}
+
 .initLi:hover {
-    background-color: rgba(148, 3, 19, 0.51) !important;
-    box-shadow: 0 0 10px rgba(254, 249, 255, 0.58) !important;
+    background-color: rgba(148, 3, 19, 0.51) ;
+    box-shadow: 0 0 10px rgba(254, 249, 255, 0.58) ;
 }
 
-.canvas {
+.hikari-container {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -51,24 +49,24 @@
     opacity: 0;
 }
 
-.shines {
+.hikari {
     display: flex;
     justify-content: center;
     width: 160px;
     height: 110px;
-    position: relative;
-    bottom: -60px;
-    z-index: 2;
+    position: absolute;
+    bottom: -180px;
+    z-index: 0;
 }
-.shines .core {
-    width: 0.1px;
+.hikari .core {
+    width: 0.2px;
     height: 0.1px;
     background: #fff;
-    border-radius: 100%;
+    border-radius: 50%;
     box-shadow: 0 0 30px 40px rgba(255, 255, 255, 0.8);
-    animation: core-shining 10s infinite ease-in-out;
+    animation: core-shining 20s infinite ease-in-out;
 }
-.shines .raising {
+.hikari .raising {
     position: absolute;
     width: 0;
     height: 600px;

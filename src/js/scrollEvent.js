@@ -19,5 +19,5 @@ export const bannerHoist = () => {
 			banner.classList.remove('hoist-banner');
 			banner.classList.add('title-block');
 		}
-	},100))
+	},50))
 };

@@ -16,7 +16,7 @@ class Sphere extends Component {
 				<div id="sphere">
 					{this.state.elementArr}
 				</div>
-				<div className="canvas" ref="shining">
+				<div className="hikari-container" ref="shining">
 				</div>
 			</div>
 
@@ -28,10 +28,13 @@ class Sphere extends Component {
 		let elementArr = [];
 		let contentArr = ['Σ','Ω','Γ','Π','β','γ','ξ','Ψ','ω','Ø','◢◤','卍','卐'];
 		for (let i in [...Array(nums)]) {
-			let content = contentArr[i%13];
-			let spanContent = (<span>{content}</span>);
+			// 就按余数随便填充
+			let content = contentArr[i%contentArr.length];
+			let spanContent;
 			if (i%12===9){
 				spanContent = (<span> </span>);
+			}else {
+				spanContent = (<span>{content}</span>);
 			}
 			let element = (
 				<div key={i} className='initLi'>
@@ -41,7 +44,6 @@ class Sphere extends Component {
 		}
 		this.setState({elementArr: elementArr});
 	}
-
 	componentWillMount() {
 		this.createElement(96);
 	}

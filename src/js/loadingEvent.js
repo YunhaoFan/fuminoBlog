@@ -27,7 +27,7 @@ export const afterLoading = () => {
 // 初始化球形 添加旋转动画（这里改用div了，li有“·”这个东西）
 export const initLayout = (perspective) => {
 	let liArr = document.querySelectorAll('#sphere div');
-	console.log(liArr);
+	//console.log(liArr);
 	window.setTimeout(() => {
 		for (let i = 0; i < liArr.length; i++) {
 			let liDegY = parseInt(i / 12) * 22.5;
