@@ -1,0 +1,48 @@
+/*回复组件样式*/
+
+.reply-content-container{
+    font-family: "等线 Light";
+    width: 2000px;
+    background-color: rgba(45, 18, 29, 0.62);
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reply-wrapper>div>label{
+    display: block;
+    padding: 20px;
+}
+
+.reply-wrapper>div>button{
+    height: 30px;
+    width: 50px;
+    border: #221114 solid 1px;
+    border-radius: 4px;
+    transition: ease-in-out 0.5s;
+    margin:10px 10px 20px 10px;
+}
+
+.reply-wrapper>div>button:hover{
+    background-color: #aa4500;
+    color: white;
+    border: #fef9ff solid 1px;
+}
+
+
+.reply-wrapper>div>textarea{
+    font-family: "等线 Light";
+    font-size: 14px;
+    width: 300px;
+    height: 60px;
+    background-color: rgba(67, 29, 40, 0.81);
+    border: #221114 solid 2px;
+    border-radius: 5px;
+    color: white;
+}
