@@ -61,3 +61,32 @@
     text-align: right;
     width: 95%;
 }
+.comment-block>#comment-reply{
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    width: 40px;
+    height: 20px;
+    top: 0;
+    opacity: 0;
+    right: -25%;
+    padding: 5px 5px 5px 0;
+    text-align: center;
+    transition: ease-in-out 0.5s;
+}
+.comment-block-list>.comment-block:hover #comment-reply{
+    opacity: 1;
+    right: 2%;
+}
+
+.comment-block>#comment-reply:hover{
+    cursor: pointer;
+    color: #aa4500;
+}
+
+.reply-container{
+    display: none;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}

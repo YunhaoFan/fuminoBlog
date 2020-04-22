@@ -12,8 +12,9 @@ import {Page} from "./pagable";
 
 class CommentList extends Component {
 	static defaultProps = {
-		title:"客官语录"
+		title: "客官语录"
 	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -49,12 +50,12 @@ class CommentList extends Component {
 			const commentStart = [];
 			if (data.status == 0) {
 				const commentBlock = (<CommentBlock key={-1} userId={"Fumino的管家"} content={"现在这里还空无一人~"}
-													submitDateTime={"悠久的时空中"}/>);
+													submitDateTime={"悠久的时空中"} commentId={-1}/>);
 				commentStart.push(commentBlock);
 				this.setState({commentList: commentStart, totalPage: data.totalPage});
 			} else {
 				data.commentData.forEach((item) => {
-					const commentBlock = (<CommentBlock key={item.id} userId={item.userId} content={item.content}
+					const commentBlock = (<CommentBlock key={item.id} commentId={item.id} userId={item.userId} content={item.content}
 														submitDateTime={item.submitDateTime}/>);
 					commentList.push(commentBlock);
 				});

@@ -41,7 +41,7 @@
     box-shadow: 0 0 2px 0 rgba(128, 128, 128, 0.44);
     font-family: 方正细等线简体;
     margin-bottom: 10%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .detail-container > .essay-content span {
