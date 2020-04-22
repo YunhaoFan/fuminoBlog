@@ -10,14 +10,23 @@
     text-align: center;
     cursor: grab;
     font-size: 13px;
+    transition: ease-in-out 1s;
+    opacity: 0;
 }
 
 .tag-container:hover{
     box-shadow: 0 0 4px 0 rgba(235, 81, 6, 0.74);
 }
+.tag-container>.lower-class-tag{
+    font-size: 10px;
+}
+.tag-container>.divided-tag{
+    margin-bottom: 20px;
+}
 .tag-container span {
     color: white;
     font-family: "等线 Light";
+    font-weight: bold;
     display: block;
     cursor: pointer;
     margin: 10px 10px 10px 10px;

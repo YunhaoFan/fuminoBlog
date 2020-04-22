@@ -9,7 +9,7 @@ class Tags extends Component {
 		super(props);
 		this.state = {
 			tagsElemArr: [],
-			showNav:''
+			showNav: ''
 		};
 	}
 
@@ -18,7 +18,7 @@ class Tags extends Component {
 			<div className="tag-container" ref={'tags'}>
 				{this.state.tagsElemArr}
 				{this.state.showNav}
-				<div className="tag-hidden" ref={'navHidden'} onClick={()=>this.handleClickNavHidden()}>收起来!</div>
+				<div className="tag-hidden" ref={'navHidden'} onClick={() => this.handleClickNavHidden()}>收起来!</div>
 			</div>
 		);
 	}
@@ -27,17 +27,30 @@ class Tags extends Component {
 		try {
 			const data = await getTags();
 			const tags = data.tags;
-			const tagsElemArr = [(<span key={-1} onClick={() => this.toAbstract('All')}>{'All'}
-					</span>)];
+			const tagsElemArr = [(<span key={'all'} className={"divided-tag"} onClick={() => this.toAbstract('All')}>{'全部内容'}
+					</span>
+			)];
 			console.log(tags);
+			const typeElemArr = [
+				(<span key={'script'} onClick={() => this.toAbstractType('script')}>{'学习笔记'}
+					</span>),
+				(<span key={'music'} onClick={() => this.toAbstractType('music')}>{'音乐'}
+					</span>),
+				(<span key={'game'} onClick={() => this.toAbstractType('game')}>{'游戏'}
+					</span>)];
 			tags.forEach((item, index) => {
 				tagsElemArr.push(
-					<span key={index} onClick={() => this.toAbstract(item)}>{item}
+					<span key={index} className={"lower-class-tag"} onClick={() => this.toAbstract(item)}>{item}
 					</span>
 				)
 			});
+			const tagsArr = typeElemArr.concat(tagsElemArr);
 			console.log(tagsElemArr);
-			this.setState({tagsElemArr: tagsElemArr});
+			this.setState({tagsElemArr: tagsArr});
+			this.refs.tags.style.opacity = 1;
+			window.setTimeout(()=>{
+				this.refs.tags.style.transition = 'none';
+			},1000)
 		} catch (e) {
 			console.log(e)
 		}
@@ -49,23 +62,27 @@ class Tags extends Component {
 		this.props.abstract.getAbstractByTag(item);
 	}
 
+	toAbstractType(type) {
+		this.props.abstract.getAbstract(type);
+	}
+
 	// 单击收起事件
-	handleClickNavHidden(){
-		const tagContainer =this.refs.tags;
+	handleClickNavHidden() {
+		const tagContainer = this.refs.tags;
 		const tagHidden = this.refs.navHidden;
 		tagContainer.classList.remove('tag-container');
 		tagContainer.classList.add('tag-container-hidden');
-		this.setState({'showNav':(<div className='show-nav' onClick={()=>this.handleClickNavShown()}>展开!</div>)});
+		this.setState({'showNav': (<div className='show-nav' onClick={() => this.handleClickNavShown()}>展开!</div>)});
 		tagHidden.style.display = 'none';
 	}
 
 	//单击展开事件
-	handleClickNavShown(){
-		const tagContainer =this.refs.tags;
+	handleClickNavShown() {
+		const tagContainer = this.refs.tags;
 		const tagHidden = this.refs.navHidden;
 		tagContainer.classList.add('tag-container');
 		tagContainer.classList.remove('tag-container-hidden');
-		this.setState({'showNav':''});
+		this.setState({'showNav': ''});
 		tagHidden.style.display = 'block';
 	}
 
@@ -123,12 +140,13 @@ class Tags extends Component {
 				tagContainer.style.left = originLeft + moveX + 'px';
 			}
 			e.preventDefault();
-		},{ passive: false });
+		}, {passive: false});
 		window.addEventListener('touchend', (e) => {
 			mousedownFlag = 0;
 			tagContainer.style.cursor = 'grab';
 		})
 	}
+
 	componentDidMount() {
 		this.getAllTags();
 		this.dragTagGroup();

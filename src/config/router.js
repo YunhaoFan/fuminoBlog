@@ -19,7 +19,7 @@ class RouterConfig extends Component {
 				<div>
 					<Switch>
 						<Route exact path='/home' component={Landing}/>
-						<Route exact path='/abstract/:category' component={Abstract}/>
+						<Route exact path='/abstract' component={Abstract}/>
 						{/*<Route exact path='/music' component={Abstract}/>*/}
 						{/*<Route exact path='/game' component={Abstract}/>*/}
 						<Route exact path='/detail' component={Detail}/>
