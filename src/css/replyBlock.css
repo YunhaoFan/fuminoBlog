@@ -1,0 +1,31 @@
+/*回复list的样式*/
+
+.reply-block{
+    display: block;
+    background-color: rgba(39, 3, 0, 0.77);
+    border-radius: 20px;
+    transition: ease-in-out 0.5s;
+    margin: 5px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0 5px 0;
+}
+.reply-block:hover{
+    background-color: rgba(64, 0, 2, 0.7);
+    transform: translateX(-5px);
+}
+.reply-block>span{
+    font-size: 13px;
+    font-family: "微软雅黑 Light";
+}
+
+.reply-block>.reply-userId{
+    font-weight: bold;
+}
+
+.reply-block>p{
+    padding: 0;
+    line-height: 15px;
+    margin: 5px;
+    font-size: 13px;
+    word-wrap:break-word;
+    word-break:break-all;
+}

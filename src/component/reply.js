@@ -2,7 +2,9 @@
 import React, {Component} from 'react';
 import {submitReply} from "../api/api";
 import {showNofify} from "../js/loadingEvent";
+import {getLocalStorageItem, isEmptyObject} from "../js/util";
 import '../css/reply.css';
+import {filterXSS} from "xss";
 
 /**
  * props:
@@ -40,7 +42,7 @@ class Reply extends Component {
 	// 监听输入变化
 	handleReplyChange(val) {
 		this.setState({
-			replyContent: val.target.value
+			replyContent: filterXSS(val.target.value)
 		})
 	}
 
@@ -49,15 +51,28 @@ class Reply extends Component {
 		const data = {
 			essayKey: this.props.essayKey,
 			commentId: this.props.commentId,
-			replyContent: this.state.replyContent
+			replyContent: this.state.replyContent,
+			userId:getLocalStorageItem('commentInfo').nickname
 		};
-		try {
-			const res = await submitReply(data);
-			if (res.errorCode !== 1000) {
-				showNofify('error', '请求错误！');
+		if (isEmptyObject(getLocalStorageItem('commentInfo'))) {
+			showNofify('error', '大佬不能随便回复的哇~您得先勾选记住信息评论之后才能回复0>0')
+		} else if (this.state.replyContent == '') {
+			showNofify('error', '大佬回复点东西呀TUT')
+		} else {
+			try {
+				const res = await submitReply(data);
+				if (res.errorCode !== 1000) {
+					showNofify('error', '请求错误！');
+				}else {
+					showNofify('success','评论成功');
+					window.setTimeout(()=>{
+						this.props.commentBlock.props.commentList.updateCommentList()
+					},1);
+					this.handleCancelReply();
+				}
+			} catch (e) {
+				console.log(e)
 			}
-		} catch (e) {
-			console.log(e)
 		}
 	}
 

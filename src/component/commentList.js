@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import {CommentBlock} from "./commentBlock";
 import '../css/commentBlock.css';
 import {Page} from "./pagable";
+import {getLocalStorageItem, getObjectVal, isEmptyObject} from "../js/util";
+import {getReply} from "../api/api";
 
 /**
  * props:
@@ -21,7 +23,8 @@ class CommentList extends Component {
 			presentPage: 1,
 			commentList: [],
 			totalPage: '',
-			page: ''
+			page: '',
+			replyDict: []
 		}
 	}
 
@@ -48,15 +51,19 @@ class CommentList extends Component {
 			});
 			const commentList = [];
 			const commentStart = [];
+			const replyDict = this.state.replyDict;
 			if (data.status == 0) {
 				const commentBlock = (<CommentBlock key={-1} userId={"Fumino的管家"} content={"现在这里还空无一人~"}
-													submitDateTime={"悠久的时空中"} commentId={-1}/>);
+													submitDateTime={"悠久的时空中"} commentId={-1}
+													replyList={getObjectVal(replyDict, "-1")} commentList={this}/>);
 				commentStart.push(commentBlock);
 				this.setState({commentList: commentStart, totalPage: data.totalPage});
 			} else {
 				data.commentData.forEach((item) => {
-					const commentBlock = (<CommentBlock key={item.id} commentId={item.id} userId={item.userId} content={item.content}
-														submitDateTime={item.submitDateTime}/>);
+					const commentBlock = (
+						<CommentBlock key={item.id} commentId={item.id} userId={item.userId} content={item.content}
+									  submitDateTime={item.submitDateTime}
+									  replyList={getObjectVal(replyDict, String(item.id))} commentList={this}/>);
 					commentList.push(commentBlock);
 				});
 				this.setState({commentList: commentList, totalPage: data.totalPage});
@@ -69,8 +76,44 @@ class CommentList extends Component {
 		}
 	}
 
+	// 获取回复
+	async getCommentReply() {
+		let essayKey;
+		if (isEmptyObject(getLocalStorageItem('detailKey'))) {
+			essayKey = 0
+		} else {
+			essayKey = getLocalStorageItem('detailKey').id;
+		}
+		try {
+			const commentReplyList = await getReply({essayKey: essayKey});
+
+			//创建comment和reply的映射
+			const replyDict = {};
+			commentReplyList.forEach(item => {
+				if (Object.keys(replyDict).indexOf(String(item.commentId)) == -1) {
+					replyDict[String(item.commentId)] = [];
+					replyDict[String(item.commentId)].push(item)
+				} else {
+					replyDict[String(item.commentId)].push(item)
+				}
+			});
+
+			this.setState({replyDict: replyDict});
+			console.log(this.state.replyDict)
+		} catch (e) {
+			console.log(e)
+		}
+	}
+
+	// 更新状态
+	updateCommentList() {
+		this.getCommentReply().then(() => {
+			this.getCommentByPage();
+		});
+	}
+
 	componentWillMount() {
-		this.getCommentByPage();
+		this.updateCommentList();
 	}
 }
 

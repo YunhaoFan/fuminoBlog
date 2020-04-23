@@ -3,10 +3,22 @@ import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import '../css/commentBlock.css';
 import {Reply} from "./reply";
+import {ReplyBlock} from "./replyBlock";
 
+/**
+ * props:
+ * userId
+ * content
+ * submitDateTime
+ * replyList:相应的回复列表
+ * replyId(key)
+ */
 class CommentBlock extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			reply: []
+		};
 		this.handleClickReply = this.handleClickReply.bind(this);
 	}
 
@@ -14,12 +26,15 @@ class CommentBlock extends Component {
 		return (
 			<Fragment>
 				<div className="comment-block">
-					<span id="comment-userId">{this.props.userId}</span><span> 说：</span>
-					<p id="comment-content">{this.props.content}</p>
-					<span id="comment-datetime">{this.props.submitDateTime}</span>
-					<span id="comment-reply" onClick={this.handleClickReply}>回复</span>
+					<span className="comment-userId">{this.props.userId}</span><span> 说：</span>
+					<p className="comment-content">{this.props.content}</p>
+					<span className="comment-datetime">{this.props.submitDateTime}</span>
+					<span className="comment-reply" onClick={this.handleClickReply}>回复</span>
 				</div>
 				<div className="reply-container" ref="replyContainer">
+				</div>
+				<div className="reply-list-container" ref="replyListContainer">
+					{this.state.reply}
 				</div>
 			</Fragment>
 		)
@@ -44,6 +59,27 @@ class CommentBlock extends Component {
 			ReactDOM.unmountComponentAtNode(replyContainer);
 			replyContainer.style.display = 'none'
 		}, 500);
+	}
+
+	// 显示回复列表
+	initReplyList(props) {
+		const replyList = props.replyList;
+		const reply = [];
+		replyList.forEach(item => {
+			reply.push(<ReplyBlock userId={item.userId} replyContent={item.content}
+								   datetime={item.datetime} key={item.id}/>)
+		});
+		this.setState({reply: reply});
+		console.log(reply, this.state.reply)
+	}
+
+	// 更新回复列表
+	componentWillReceiveProps(nextProps, nextContext) {
+			this.initReplyList(nextProps)
+	}
+
+	componentDidMount() {
+			this.initReplyList(this.props);
 	}
 }
 

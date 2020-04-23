@@ -42,26 +42,26 @@
     border: 1px solid grey;
 }
 
-.comment-block>#comment-userId{
+.comment-block>.comment-userId{
     padding: 10px 10px 5px 20px;
     font-weight: bold;
     color: #ffddda;
 }
 
-.comment-block>#comment-content{
+.comment-block>.comment-content{
     padding: 0 5px 0 5px;
     font-size: 13px;
     line-height: 20px;
 }
 
-.comment-block>#comment-datetime{
+.comment-block>.comment-datetime{
     padding: 10px 10px 5px 0;
     margin: 0;
     font-size: 13px;
     text-align: right;
     width: 95%;
 }
-.comment-block>#comment-reply{
+.comment-block>.comment-reply{
     position: absolute;
     font-size: 20px;
     font-weight: bold;
@@ -75,12 +75,12 @@
     text-align: center;
     transition: ease-in-out 0.5s;
 }
-.comment-block-list>.comment-block:hover #comment-reply{
+.comment-block-list>.comment-block:hover .comment-reply{
     opacity: 1;
     right: 2%;
 }
 
-.comment-block>#comment-reply:hover{
+.comment-block>.comment-reply:hover{
     cursor: pointer;
     color: #aa4500;
 }
@@ -89,4 +89,10 @@
     display: none;
     opacity: 0;
     transition: ease-in-out 0.5s;
+}
+
+.reply-list-container{
+    position: relative;
+    right: 15%;
+    width: 50%;
 }

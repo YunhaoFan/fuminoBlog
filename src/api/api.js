@@ -21,3 +21,9 @@ export const submitComment = (data) =>fetch('/submitComment',data,'POST');
 
 // 获取文章评论
 export const getComment = (data) =>fetch('/getComment',data,'POST');
+
+// 获取回复
+export const getReply = (data) =>fetch('/commentReplyByEssayId',data,'GET');
+
+// 提交回复
+export const submitReply = (data) =>fetch('/submitReply',data,'POST');
