@@ -97,3 +97,49 @@ export const lazyLoadImg = () => {
 
 	})
 };
+
+// 判断是否为空对象(JSON.stringify和object.keys.length方法)
+export const isEmptyObject = (obj)=>{
+	if (JSON.stringify(obj) == '{}'){
+		console.log(obj,JSON.stringify(obj) == '{}');
+		return true;
+	} else {
+		return false;
+	}
+};
+
+// setItem到localStorage
+export const setLocalStorageItem = (key,val)=>{
+	window.localStorage.setItem(key,JSON.stringify(val))
+};
+
+// 从localStorage getItem
+export const getLocalStorageItem = (key) =>{
+	if (JSON.parse(window.localStorage.getItem(key))==null){
+		return {}
+	}
+	return JSON.parse(window.localStorage.getItem(key));
+};
+
+// setItem到sessionStorage
+export const setSessionStorageItem = (key,val) =>{
+	window.sessionStorage.setItem(key,JSON.stringify(val))
+};
+
+// 从sessionStorage getItem
+export const getSessionStorageItem = (key) =>{
+	if (JSON.parse(window.sessionStorage.getItem(key))==null){
+		return {}
+	}
+	return JSON.parse(window.sessionStorage.getItem(key));
+};
+
+// 获取对象值，加入判断有无该键
+export const getObjectVal = (obj,key) =>{
+	console.log(obj,key)
+	if(obj.hasOwnProperty(key)){
+		return obj[key]
+	}else {
+		return []
+	}
+};
