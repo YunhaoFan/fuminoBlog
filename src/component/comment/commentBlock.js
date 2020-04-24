@@ -1,7 +1,7 @@
 // 单个评论模块
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import '../css/commentBlock.css';
+import '../../css/commentBlock.css';
 import {Reply} from "./reply";
 import {ReplyBlock} from "./replyBlock";
 

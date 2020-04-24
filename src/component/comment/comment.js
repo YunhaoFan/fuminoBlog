@@ -1,9 +1,9 @@
 // 评论模块
 import React, {Component} from 'react';
-import {showNofify} from "../js/loadingEvent";
+import {showNofify} from "../../js/loadingEvent";
 import {filterXSS} from "xss";
-import '../css/comment.css';
-import {debounce} from "../js/util";
+import '../../css/comment.css';
+import  {debounce} from "../../js/util";
 
 /**
  * props:
@@ -63,7 +63,7 @@ class Comment extends Component {
 				<div>
 					<div id="check-box-remember">
 						<label htmlFor="comment-remember">记住个人信息？</label>
-						<input id="comment-remember" ref="rememberMe" type="checkbox"/>
+						<input id="comment-remember" ref="rememberMe" type="checkbox" defaultChecked={true}/>
 					</div>
 				</div>
 				<div>

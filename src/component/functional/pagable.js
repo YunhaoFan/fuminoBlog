@@ -1,8 +1,8 @@
 // 分页组件
 import React, {Component, Fragment} from 'react';
-import {showNofify} from "../js/loadingEvent";
-import '../css/pagable.css';
-import {naturalArr} from "../js/util";
+import {showNofify} from "../../js/loadingEvent";
+import '../../css/pagable.css';
+import {naturalArr} from "../../js/util";
 
 class Page extends Component {
 	constructor(props) {

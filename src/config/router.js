@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Route} from 'react-router';
 import {HashRouter, Switch,Redirect} from "react-router-dom";
 import {Landing} from "../component/landing";
-import Abstract from "../component/abstract";
-import {Detail} from "../component/essayDetail";
-import {Board} from "../component/board";
+import Abstract from "../component/essay/abstract";
+import {Detail} from "../component/essay/essayDetail";
+import {Board} from "../component/messageBoard/board";
 import {adjustBanner} from "../js/loadingEvent";
 
 // 路由配置

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/loadingAnime.css';
+import '../../css/loadingAnime.css';
 
 class Loading extends Component{
 	constructor(props){

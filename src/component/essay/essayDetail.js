@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {getComment, getDetail, submitComment} from "../api/api";
-import '../css/detail.css';
-import {strToDom} from "../js/util";
-import {Comment} from "./comment";
-import {CommentList} from "./commentList";
+import {getComment, getDetail, submitComment} from "../../api/api";
+import '../../css/detail.css';
+import {strToDom} from "../../js/util";
+import {Comment} from "../comment/comment";
+import {CommentList} from "../comment/commentList";
 
 class Detail extends Component {
 	constructor(props) {

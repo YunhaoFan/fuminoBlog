@@ -1,6 +1,6 @@
 // 提示组件
 import React, {Component} from 'react';
-import '../css/notify.css';
+import '../../css/notify.css';
 
 class Notify extends Component {
 	constructor(props) {

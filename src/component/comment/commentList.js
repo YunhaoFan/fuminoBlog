@@ -1,10 +1,10 @@
 // 评论列表
 import React, {Component} from 'react';
 import {CommentBlock} from "./commentBlock";
-import '../css/commentBlock.css';
-import {Page} from "./pagable";
-import {getLocalStorageItem, getObjectVal, isEmptyObject} from "../js/util";
-import {getReply} from "../api/api";
+import '../../css/commentBlock.css';
+import {Page} from "../functional/pagable";
+import {getLocalStorageItem, getObjectVal, isEmptyObject} from "../../js/util";
+import {getReply} from "../../api/api";
 
 /**
  * props:

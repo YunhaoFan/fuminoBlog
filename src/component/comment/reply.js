@@ -1,9 +1,9 @@
 // 回复组件
 import React, {Component} from 'react';
-import {submitReply} from "../api/api";
-import {showNofify} from "../js/loadingEvent";
-import {getLocalStorageItem, isEmptyObject} from "../js/util";
-import '../css/reply.css';
+import {submitReply} from "../../api/api";
+import {showNofify} from "../../js/loadingEvent";
+import {getLocalStorageItem, isEmptyObject} from "../../js/util";
+import '../../css/reply.css';
 import {filterXSS} from "xss";
 
 /**
@@ -55,7 +55,7 @@ class Reply extends Component {
 			userId:getLocalStorageItem('commentInfo').nickname
 		};
 		if (isEmptyObject(getLocalStorageItem('commentInfo'))) {
-			showNofify('error', '大佬不能随便回复的哇~您得先勾选记住信息评论之后才能回复0>0')
+			showNofify('error', '大佬不能随便回复的哇~未检测到您的信息OVO~勾选“记住信息”后发表一条评论后即可解禁回复哦OVO');
 		} else if (this.state.replyContent == '') {
 			showNofify('error', '大佬回复点东西呀TUT')
 		} else {

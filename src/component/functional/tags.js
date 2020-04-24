@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {getTags} from "../api/api";
-import '../css/tags.css';
-import {getLeft, getTop} from "../js/util";
+import {getTags} from "../../api/api";
+import '../../css/tags.css';
+import {getLeft, getTop} from "../../js/util";
 
 
 class Tags extends Component {

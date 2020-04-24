@@ -5,7 +5,7 @@ import registerServiceWorker, {unregister} from './registerServiceWorker';
 import './index.css';
 import {bannerHoist} from "./js/scrollEvent";
 import {RouterConfig} from "./config/router";
-import {Loading} from "./component/loadingAnime";
+import {Loading} from "./component/anime/loadingAnime";
 import {initLayout} from "./js/loadingEvent";
 import {Mashiro} from "./component/mashiro";
 

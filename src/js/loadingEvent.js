@@ -1,7 +1,7 @@
 /**
  * 加载事件动画
  **/
-import {Notify} from "../component/notify";
+import {Notify} from "../component/functional/notify";
 import ReactDOM from 'react-dom';
 import React from 'react';
 

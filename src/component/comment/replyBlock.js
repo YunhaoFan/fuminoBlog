@@ -1,7 +1,7 @@
 // 回复显示区域
 
 import React, {Component, Fragment} from 'react';
-import '../css/replyBlock.css';
+import '../../css/replyBlock.css';
 
 /**
  * props:

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../css/landing.css';
+import '../../css/landing.css';
 import {Redirect} from "react-router";
-import loadingImg from '../img/loading1.gif';
+import loadingImg from '../../img/loading1.gif';
 
 class EssayGroup extends Component {
 	constructor(props) {

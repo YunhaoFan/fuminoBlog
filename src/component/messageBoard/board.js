@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {CommentList} from "./commentList";
-import {Comment} from "./comment";
-import {getComment, submitComment} from "../api/api";
-import {adjustBanner} from "../js/loadingEvent";
+import {CommentList} from "../comment/commentList";
+import {Comment} from "../comment/comment";
+import {getComment, submitComment} from "../../api/api";
+import {adjustBanner} from "../../js/loadingEvent";
 
 
 class Board extends Component {

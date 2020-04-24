@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import '../css/3dGallery.css';
+import '../../css/3dGallery.css';
 import {Shining} from "./shining";
 
 class Sphere extends Component {

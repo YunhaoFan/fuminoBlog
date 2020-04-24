@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import '../css/landing.css';
+import '../../css/landing.css';
 import {EssayGroup} from "./essayBlockGroup";
-import {getAbstractByCategory, getAbstractByTagName} from "../api/api";
-import {adjustBanner} from "../js/loadingEvent";
-import {Tags} from "./tags";
-import {lazyLoadImg} from "../js/util";
+import {getAbstractByCategory, getAbstractByTagName} from "../../api/api";
+import {adjustBanner} from "../../js/loadingEvent";
+import {Tags} from "../functional/tags";
+import {lazyLoadImg} from "../../js/util";
 
 class Abstract extends Component {
 	constructor(props) {

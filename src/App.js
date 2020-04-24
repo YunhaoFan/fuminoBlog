@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {HashRouter, Link} from "react-router-dom";
 import './App.css';
-import {Sphere} from "./component/3dGallery";
+import {Sphere} from "./component/anime/3dGallery";
 import {adjustBanner} from "./js/loadingEvent";
 
 class App extends Component {
