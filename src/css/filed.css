@@ -1,0 +1,80 @@
+/*归档样式*/
+
+@keyframes fade-in {
+    0% {opacity: 0;}/*初始状态 透明度为0*/
+    40% {opacity: 0;}/*过渡状态 透明度为0*/
+    100% {opacity: 1;}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.file-container{
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    animation: fade-in 1s;
+    margin:20px 0 100px 0;
+}
+
+.file-year-container {
+    padding: 20px;
+    color:#fff;
+    font-size: 30px;
+}
+
+.file-divided{
+    width: 80%;
+    color: #c1c1c1;
+    box-shadow: rgba(183, 183, 183, 0.4) 0 0 1px 0;
+}
+
+.file-month-container {
+    padding: 10px;
+    color: #c6c3c7;
+    font-size: 20px;
+}
+
+.file-block {
+    padding: 10px;
+    margin:10px;
+    color: #fff;
+    width: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+}
+
+.file-block:hover{
+    background-color: #2d121d;
+    box-shadow: rgba(166, 0, 18, 0.56) 0 0 5px 0;
+}
+
+.file-title{
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+    left: 0;
+    padding:0 20px 0 20px;
+    font-weight: bold;
+}
+
+.file-author{
+    text-align: left;
+    display: inline-block;
+    width: 15%;
+    font-size:13px;
+    color: #c6c3c7;
+    padding: 0 10px 0 10px;
+}
+
+.file-datetime{
+    font-size: 12px;
+    color: rgba(117, 117, 117, 0.57);
+    float: right;
+}

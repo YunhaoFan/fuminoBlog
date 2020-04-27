@@ -6,6 +6,7 @@ import Abstract from "../component/essay/abstract";
 import {Detail} from "../component/essay/essayDetail";
 import {Board} from "../component/messageBoard/board";
 import {adjustBanner} from "../js/loadingEvent";
+import {Filed} from "../component/essay/filed";
 
 // 路由配置
 class RouterConfig extends Component {
@@ -23,6 +24,7 @@ class RouterConfig extends Component {
 						{/*<Route exact path='/music' component={Abstract}/>*/}
 						{/*<Route exact path='/game' component={Abstract}/>*/}
 						<Route exact path='/detail' component={Detail}/>
+						<Route exact path='/filed' component={Filed}/>
 						<Route exact path='/board' component={Board}/>
 						<Redirect path="/" to={{pathname: '/home'}} />
 					</Switch>

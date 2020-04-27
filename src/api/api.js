@@ -27,3 +27,6 @@ export const getReply = (data) =>fetch('/commentReplyByEssayId',data,'GET');
 
 // 提交回复
 export const submitReply = (data) =>fetch('/submitReply',data,'POST');
+
+// 获取归档
+export const getFiledEssay = () => fetch('/filed');

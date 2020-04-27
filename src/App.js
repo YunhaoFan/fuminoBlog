@@ -21,6 +21,7 @@ class App extends Component {
 							<HashRouter>
 								<span><Link to={'/home'}>首页</Link></span>
 								<span><Link to={'/abstract'}>日志</Link></span>
+								<span><Link to={'/filed'}>归档</Link></span>
 								<span><Link to={'/board'}>留言板</Link></span>
 							</HashRouter>
 						</div>
