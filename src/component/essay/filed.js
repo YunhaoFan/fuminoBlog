@@ -4,13 +4,15 @@ import {getFiledEssay} from "../../api/api";
 import {Redirect} from "react-router";
 import "../../css/filed.css";
 import {adjustBanner} from "../../js/loadingEvent";
+import {scrollToAnchor} from "../../js/util";
 
 class Filed extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			fileList: [],
-			redirect: ''
+			redirect: '',
+			navList:[]
 			//monthlyEssay:[]
 		};
 		this.handleClick = this.handleClick.bind(this);
@@ -18,9 +20,15 @@ class Filed extends Component {
 
 	render() {
 		return (
-			<div className="file-container">
-				{this.state.fileList}
-				{this.state.redirect}
+			<div className="file">
+				<div className="file-nav">
+					<span className="file-nav-title">时间轴</span>
+					{this.state.navList}
+				</div>
+				<div className="file-content">
+					{this.state.fileList}
+					{this.state.redirect}
+				</div>
 			</div>
 		)
 	}
@@ -39,12 +47,21 @@ class Filed extends Component {
 		try {
 			const filedEssay = await getFiledEssay();
 			const fileList = [];
+			const navList =[];
 			for (let year in filedEssay) {
 				const monthlyEssay = [];
+				navList.push(
+					<div className="file-nav-year" key={"nav_"+year}
+					onClick={(e)=>{scrollToAnchor(`${year}`)}}>{year}</div>
+				);
 				for (let month in filedEssay[year]) {
 					const essayList = filedEssay[year][month];
+					navList.push(
+						<span className="file-nav-month" key={"nav_"+month}
+							  onClick={(e)=>{scrollToAnchor(`${month}`)}}>{`${month} 月 (${essayList.length} 篇)`}</span>
+					);
 					monthlyEssay.push(
-						<div key={month} className="file-month-container">
+						<div id={month} key={month} className="file-month-container">
 							<span className="file-month">{month+" "}</span><span>月</span>
 						</div>
 					);
@@ -60,16 +77,16 @@ class Filed extends Component {
 					//this.setState({monthlyEssay:monthlyEssay})
 				}
 				const essayInYear = (
-					<Fragment>
+					<div id={year} key={"essay_"+year} className="file-container">
 						<div className="file-year-container">
 							<span className="file-year">{year+"  "}</span><span>年</span>
 						</div>
 						<hr className="file-divided"/>
 						{monthlyEssay}
-					</Fragment>);
+					</div>);
 				fileList.push(essayInYear);
 			}
-			this.setState({fileList: fileList})
+			this.setState({fileList: fileList,navList:navList})
 		} catch (e) {
 			console.log(e)
 		}

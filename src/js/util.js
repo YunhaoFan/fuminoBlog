@@ -57,7 +57,7 @@ export const debounce = (fn, wait) => {
 	let timeout = null;
 	return function () {
 		const that = this;
-		fn = fn.bind(that,...arguments);
+		fn = fn.bind(that, ...arguments);
 		if (timeout !== null) clearTimeout(timeout);
 		timeout = window.setTimeout(fn, wait);
 	}
@@ -70,7 +70,7 @@ export const naturalArr = length => Array.from({length}).map((v, k) => k);
 export const lazyLoadImg = () => {
 	const imgSet = document.querySelectorAll('img');
 	const imgAction = (item) => {
-		if (item.src !== item.getAttribute('data-src')){
+		if (item.src !== item.getAttribute('data-src')) {
 			const img = new Image();
 			img.src = item.getAttribute('data-src');
 			img.onload = () => {
@@ -84,7 +84,7 @@ export const lazyLoadImg = () => {
 	};
 	imgSet.forEach(item => {
 		//console.log(getTop(item) - window.innerHeight)
-		if (getTop(item) - window.innerHeight- window.scrollY < 0) {
+		if (getTop(item) - window.innerHeight - window.scrollY < 0) {
 			imgAction(item);
 		} else {
 			document.addEventListener('scroll', (e) => {
@@ -99,9 +99,9 @@ export const lazyLoadImg = () => {
 };
 
 // 判断是否为空对象(JSON.stringify和object.keys.length方法)
-export const isEmptyObject = (obj)=>{
-	if (JSON.stringify(obj) == '{}'){
-		console.log(obj,JSON.stringify(obj) == '{}');
+export const isEmptyObject = (obj) => {
+	if (JSON.stringify(obj) == '{}') {
+		console.log(obj, JSON.stringify(obj) == '{}');
 		return true;
 	} else {
 		return false;
@@ -109,37 +109,48 @@ export const isEmptyObject = (obj)=>{
 };
 
 // setItem到localStorage
-export const setLocalStorageItem = (key,val)=>{
-	window.localStorage.setItem(key,JSON.stringify(val))
+export const setLocalStorageItem = (key, val) => {
+	window.localStorage.setItem(key, JSON.stringify(val))
 };
 
 // 从localStorage getItem
-export const getLocalStorageItem = (key) =>{
-	if (JSON.parse(window.localStorage.getItem(key))==null){
+export const getLocalStorageItem = (key) => {
+	if (JSON.parse(window.localStorage.getItem(key)) == null) {
 		return {}
 	}
 	return JSON.parse(window.localStorage.getItem(key));
 };
 
 // setItem到sessionStorage
-export const setSessionStorageItem = (key,val) =>{
-	window.sessionStorage.setItem(key,JSON.stringify(val))
+export const setSessionStorageItem = (key, val) => {
+	window.sessionStorage.setItem(key, JSON.stringify(val))
 };
 
 // 从sessionStorage getItem
-export const getSessionStorageItem = (key) =>{
-	if (JSON.parse(window.sessionStorage.getItem(key))==null){
+export const getSessionStorageItem = (key) => {
+	if (JSON.parse(window.sessionStorage.getItem(key)) == null) {
 		return {}
 	}
 	return JSON.parse(window.sessionStorage.getItem(key));
 };
 
 // 获取对象值，加入判断有无该键
-export const getObjectVal = (obj,key) =>{
-	console.log(obj,key)
-	if(obj.hasOwnProperty(key)){
+export const getObjectVal = (obj, key) => {
+	console.log(obj, key)
+	if (obj.hasOwnProperty(key)) {
 		return obj[key]
-	}else {
+	} else {
 		return []
+	}
+};
+
+// 滚动至锚点("id")
+export const scrollToAnchor = (anchor) => {
+	const anchorElem = document.getElementById(anchor);
+	if (anchorElem) {
+		anchorElem.scrollIntoView({
+			block: 'start', // 滚动至锚点顶部或底部 start/end
+			behavior: 'smooth'// 滚动效果有auto/instant/smooth
+		})
 	}
 };
