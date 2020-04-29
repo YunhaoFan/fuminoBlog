@@ -16,18 +16,28 @@
     animation: fade-in 1s;
 }
 .file-nav{
-    flex: 1 1 10%;
+    flex: 1 1 6%;
     position: relative;
     box-shadow: #6e2b46 0 5px 5px 2px;
+    background-color: #2d121d;
     transition: ease-in-out 0.5s;
 }
 .file-nav:hover{
     box-shadow: rgba(181, 70, 114, 0.73) 0 26px 30px 2px;
     flex: 1 1 12%;
 }
+.file-nav:hover .file-nav-year{
+    display: block;
+}
+.file-nav:hover .file-nav-month{
+    display: block;
+}
+.file-nav:hover .file-nav-title{
+    display: block;
+}
 .file-content{
     position: relative;
-    flex: 1 1 90%;
+    flex: 1 1 94%;
 }
 .file-nav-year{
     color: rgba(255, 255, 255, 0.75);
@@ -36,27 +46,31 @@
     font-weight: bold;
     cursor: pointer;
     transition: ease-in-out 0.5s;
+    display: none;
+    animation: fade-in 0.5s;
 }
 .file-nav-year:hover{
     color: #ffcdca;
     transform: translateX(5%);
 }
 .file-nav-month{
-    display: block;
+    display: none;
     color: rgba(255, 255, 255, 0.51);
     font-size: 15px;
     cursor: pointer;
     transition: ease-in-out 0.5s;
     margin: 2px 0 2px 40px;
+    animation: fade-in 0.5s;
 }
 .file-nav-month:hover{
     color: #ffb5b2;
     transform: translateX(5%);
 }
 .file-nav-title{
-    display: block;
+    display: none;
     color: white;
     margin:20px 0 10px 10px;
+    animation: fade-in 0.5s;
 }
 .file-container{
     position: relative;
