@@ -56,12 +56,13 @@ class Filed extends Component {
 				);
 				for (let month in filedEssay[year]) {
 					const essayList = filedEssay[year][month];
+					month = month.split('_')[0];
 					navList.push(
 						<span className="file-nav-month" key={"nav_"+month}
 							  onClick={(e)=>{scrollToAnchor(`${month}`)}}>{`${month} 月 (${essayList.length} 篇)`}</span>
 					);
 					monthlyEssay.push(
-						<div id={month} key={month} className="file-month-container">
+						<div id={month} key={"essay_"+month} className="file-month-container">
 							<span className="file-month">{month+" "}</span><span>月</span>
 						</div>
 					);
