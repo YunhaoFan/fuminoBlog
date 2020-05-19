@@ -154,3 +154,20 @@ export const scrollToAnchor = (anchor) => {
 		})
 	}
 };
+
+// ios阻止缩放
+export const preventScaler = () =>{
+	window.onload = function () {
+		document.addEventListener('gesturestart',function (e) {
+			e.preventDefault()
+		});
+		document.addEventListener('dbclick',function (e) {
+			e.preventDefault()
+		});
+		document.addEventListener('touchstart',function (e) {
+			if (e.touches.length>1){
+				e.preventDefault()
+			}
+		});
+	}
+};
